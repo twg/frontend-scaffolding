@@ -12,11 +12,11 @@ var gulp = require('gulp'),
     notify = require('gulp-notify')
 
 var vendorJS = [
-  './bower_components/jquery/dist/jquery.js'
-];
+  './bower_components/jquery-1.9.1/index.js'
+]
 
 var vendorCSS = [
-];
+]
 
 //-- HTML -----------------------------------------------------
 gulp.task('html', function() {
@@ -25,10 +25,11 @@ gulp.task('html', function() {
       pretty: true
     }))
     .on("error", notify.onError(function (error) {
-      return "Jade error: " + error.message;
+      return "Jade error: " + error.message
     }))
-    .pipe(gulp.dest('./dist/'));
-});
+    .pipe(gulp.dest('./dist/'))
+    .pipe(notify('Compiled HTML'))
+})
 
 //-- CSS -----------------------------------------------------
 gulp.task('css', function() {
@@ -36,20 +37,22 @@ gulp.task('css', function() {
   gulp.src('./src/stylus/app.styl')
     .pipe(stylus())
     .on("error", notify.onError(function (error) {
-      return "Stylus error: " + error.message;
+      return "Stylus error: " + error.message
     }))
     .pipe(autoprefixer('last 2 version', 'safari 5', 'ie 8', 'ie 9', 'opera 12.1', 'ios 6', 'android 4'))
     .pipe(minify())
-    .pipe(gulp.dest('./dist/css'));
+    .pipe(gulp.dest('./dist/css'))
+    .pipe(notify('Compiled CSS'))
 
   // vendor CSS
-  if(vendorCSS.length > 1){
+  if(vendorCSS.length > 0){
     gulp.src(vendorCSS)
       .pipe(minify())
       .pipe(concat('vendor.css'))
-      .pipe(gulp.dest('./dist/css'));
+      .pipe(gulp.dest('./dist/css'))
   }
-});
+
+})
 
 //-- JS -----------------------------------------------------
 gulp.task('javascript', function() {
@@ -61,10 +64,11 @@ gulp.task('javascript', function() {
     ]))
     .pipe(concat('app.min.js'))
     .pipe(uglify())
-    .pipe(gulp.dest('./dist/js'));
+    .pipe(gulp.dest('./dist/js'))
+    .pipe(notify('Compiled JS'))
 
   // vendor JS
-  if(vendorJS.length > 1){
+  if(vendorJS.length > 0){
     gulp.src(vendorJS)
       .pipe(order([
         'jquery.js',
@@ -72,9 +76,9 @@ gulp.task('javascript', function() {
       ]))
       .pipe(concat('vendor.min.js'))
       .pipe(uglify())
-      .pipe(gulp.dest('./dist/js'));
+      .pipe(gulp.dest('./dist/js'))
   }
-});
+})
 
 //-- Server -----------------------------------------------------
 gulp.task('server', function() {
@@ -87,14 +91,14 @@ gulp.task('server', function() {
       NODE_ENV: 'development'
     }
   })
-});
+})
 
 //-- Watch -----------------------------------------------------
 gulp.task('watch', function(){
-  gulp.watch('./src/jade/**/*.jade', ['html']);
-  gulp.watch('./src/js/**/*.js', ['javascript']);
-  gulp.watch('./src/stylus/**/*.styl', ['css']);
+  gulp.watch('./src/jade/**/*.jade', ['html'])
+  gulp.watch('./src/js/**/*.js', ['javascript'])
+  gulp.watch('./src/stylus/**/*.styl', ['css'])
 })
 
 //-- Default -----------------------------------------------------
-gulp.task('default', ['html', 'css', 'javascript', 'server', 'watch']);
+gulp.task('default', ['html', 'css', 'javascript', 'server', 'watch'])
