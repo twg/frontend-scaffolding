@@ -1,0 +1,19 @@
+{
+  "name": "default-project",
+  "main": "server.js",
+  "version": "0.0.1",
+  "authors": [
+    "Mark Appleby <themarkappleby@gmail.com>"
+  ],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "build"
+  ],
+  "dependencies": {
+    "jquery-1.9.1": "http://code.jquery.com/jquery-1.9.1.js",
+    "guidedog": "~0.1.7"
+  },
+  "devDependencies": {}
+}
