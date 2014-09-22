@@ -1,0 +1,369 @@
+/*------------------------------------*\
+    $CSSWIZARDRY-GRIDS
+\*------------------------------------*/
+/**
+ * CONTENTS
+ * INTRODUCTION.........How the grid system works.
+ * VARIABLES............Your settings.
+ * MIXINS...............Library mixins.
+ * GRID SETUP...........Build the grid structure.
+ * WIDTHS...............Build our responsive widths around our breakpoints.
+ * PUSH.................Push classes.
+ * PULL.................Pull classes.
+ */
+
+
+
+
+
+/*------------------------------------*\
+    $INTRODUCTION
+\*------------------------------------*/
+/**
+ * csswizardry grids provides you with widths to suit a number of breakpoints
+ * designed around devices of a size you specify. Out of the box, csswizardry
+ * grids caters to the following types of device:
+ *
+ * palm     --  palm-based devices, like phones and small tablets
+ * lap      --  lap-based devices, like iPads or laptops
+ * portable --  all of the above
+ * desk     --  stationary devices, like desktop computers
+ * regular  --  any/all types of device
+ *
+ * These namespaces are then used in the library to give you the ability to
+ * manipulate your layouts based around them, for example:
+ *
+   <div class="grid__item  one-whole  lap--one-half  desk--one-third">
+ *
+ * This would give you a grid item which is 100% width unless it is on a lap
+ * device, at which point it become 50% wide, or it is on a desktop device, at
+ * which point it becomes 33.333% width.
+ *
+ * csswizardry grids also has push and pull classes which allow you to nudge
+ * grid items left and right by a defined amount. These follow the same naming
+ * convention as above, but are prepended by either `push--` or `pull--`, for
+ * example:
+ *
+   `class="grid__item  one-half  push--one-half"`
+ *
+ * This would give you a grid item which is 50% width and pushed over to the
+ * right by 50%.
+ *
+ * All classes in csswizardry grids follow this patten, so you should fairly
+ * quickly be able to piece together any combinations you can imagine, for
+ * example:
+ *
+   `class="grid__item  one-whole  lap--one-half  desk--one-third  push--desk--one-third"`
+ *
+   `class="grid__item  one-quarter  palm--one-half  push--palm--one-half"`
+ *
+   `class="grid__item  palm--one-third  desk--five-twelfths"`
+ */
+
+
+/*------------------------------------*\
+    $VARIABLES
+\*------------------------------------*/
+/**
+ * If you are building a non-responsive site but would still like to use
+ * csswizardry-grids, set this to false:
+ */
+responsive := true
+
+
+/**
+ * Is this build mobile first? Setting to true means that all grids will be 100%
+ * width if you do not apply a more specific class to them.
+ */
+mobile_first := true
+
+
+/**
+ * Set the spacing between your grid items.
+ */
+gutter := 24px
+
+
+/**
+ * Would you like Sass’ silent classes, or regular CSS classes?
+ */
+use_silent_classes := false
+
+
+/**
+ * Would you like push and pull classes enabled?
+ */
+use_push := false
+use_pull := false
+
+
+/**
+ * Use floats instead of display: inline-block?
+ */
+
+use_floats := false
+
+
+/**
+ * Using `inline-block` means that the grid items need their whitespace removing
+ * in order for them to work correctly. Set the following to true if you are
+ * going to achieve this by manually removing/commenting out any whitespace in
+ * your HTML yourself.
+ *
+ * Setting this to false invokes a hack which cannot always be guaranteed,
+ * please see the following for more detail:
+ *
+ * github.com/csswizardry/csswizardry-grids/commit/744d4b23c9d2b77d605b5991e54a397df72e0688
+ * github.com/csswizardry/inuit.css/issues/170#issuecomment-14859371
+ */
+use_markup_fix := true and (not use_floats)
+
+
+/**
+ * Define your breakpoints. The first value is the prefix that shall be used for
+ * your classes (e.g. `.palm--one-half`), the second value is the media query
+ * that the breakpoint fires at.
+ */
+breakpoints := "palm" "(max-width: 480px)", "lap" "(min-width: 481px) and (max-width: 1023px)", "portable" "(max-width: 1023px)", "desk" "(min-width: 1024px)"
+
+
+/**
+ * Define which namespaced breakpoints you would like to generate for each of
+ * widths, push and pull. This is handy if you only need pull on, say, desk, or
+ * you only need a new width breakpoint at mobile sizes. It allows you to only
+ * compile as much CSS as you need. All are turned on by default, but you can
+ * add and remove breakpoints at will.
+ *
+ * Push and pull shall only be used if `$push` and/or `$pull` and `$responsive`
+ * have been set to ‘true’.
+ */
+breakpoint_has_widths := 'palm', 'lap', 'portable', 'desk'
+breakpoint_has_push := 'palm', 'lap', 'portable', 'desk'
+breakpoint_has_pull := 'palm', 'lap', 'portable', 'desk'
+
+
+/**
+ * If you don't like the default class names, you can customize them here.
+ */
+
+grid := 'grid'
+grid__item := grid + '__item'
+grid--rev := grid + '--rev'
+grid--full := grid + '--full'
+grid--right := grid + '--right'
+grid--center := grid + '--center'
+grid--middle := grid + '--middle'
+grid--bottom := grid + '--bottom'
+grid--narrow := grid + '--narrow'
+grid--wide = grid + '--wide'
+push := 'push--'
+pull := 'pull--'
+
+
+/**
+ * You do not need to edit anything from this line onward; csswizardry-grids is
+ * good to go. Happy griddin’!
+ */
+
+
+if use_silent_classes
+    class_type = "$"
+else
+    class_type = "."
+
+
+/*------------------------------------*\
+    $MIXINS
+\*------------------------------------*/
+/**
+ * These mixins are for the library to use only, you should not need to modify
+ * them at all.
+ *
+ * Enclose a block of code with a media query as named in `$breakpoints`.
+ */
+
+grid_media_query(media_query)
+    breakpoint_found = false
+
+    for breakpoint in breakpoints
+        name = unquote(breakpoint)
+        declaration = last(breakpoint)
+
+        if media_query == name
+            breakpoint_found = true
+
+            // Interpolation doesn't work in @media blocks, so we do it this way
+            media = unquote("@media " + declaration)
+            {media}
+                device_type(name + "-")
+
+    if not breakpoint_found
+        warn("Breakpoint '" + media_query + "' does not exist")
+
+
+/**
+ * Drop relative positioning into silent classes, which can’t take advantage of
+ * the `[class*="push--"]` and `[class*="pull--"]` selectors.
+ */
+silent_relative()
+    if use_silent_classes
+        position relative
+
+
+/**
+ * Mixin to create the different sizes dynamically
+ */
+create_size(namespace, width, sizes = null)
+    if sizes
+        for size, i in sizes
+            plural = i is 0 ? "" : "s"
+
+            {class_type}{namespace}{size}-{width}{plural}
+                width: ((i + 1) / (length(sizes) + 1)) * 100%
+
+            if use_push
+                {class_type}{push}{namespace}{size}-{width}{plural}
+                    left: ((i + 1) / (length(sizes) + 1)) * 100%
+
+            if use_pull
+                {class_type}{pull}{namespace}{size}-{width}{plural}
+                    right: ((i + 1) / (length(sizes) + 1)) * 100%
+    else
+        {class_type}{namespace}one-whole
+            width: 100%
+
+
+
+/*------------------------------------*\
+    $GRID SETUP
+\*------------------------------------*/
+/**
+ * 1. Allow the grid system to be used on lists.
+ * 2. Remove any margins and paddings that might affect the grid system.
+ * 3. Apply a negative `margin-left` to negate the columns’ gutters.
+ */
+{class_type}{grid}
+    list-style none                 /* [1] */
+    margin 0                        /* [2] */
+    padding 0                       /* [2] */
+    margin-left -(gutter)           /* [3] */
+    if not use_markup_fix
+        letter-spacing -0.31em
+
+if not use_markup_fix
+    /* Opera hack */
+    .opera:-o-prefocus,
+    {class_type}{grid}
+        word-spacing -0.43em
+
+/**
+ * 1. Cause columns to stack side-by-side.
+ * 2. Space columns apart.
+ * 3. Align columns to the tops of each other.
+ * 4. Full-width unless told to behave otherwise.
+ * 5. Required to combine fluid widths and fixed gutters.
+ */
+{class_type}{grid__item}
+    if use_floats
+        float left                  /* [1] */
+    else
+        display inline-block        /* [1] */
+    padding-left gutter             /* [2] */
+    vertical-align top              /* [3] */
+    if mobile_first
+        width 100%                  /* [4] */
+    -webkit-box-sizing border-box   /* [5] */
+    -moz-box-sizing border-box      /* [5] */
+    box-sizing border-box           /* [5] */
+    if pull or push
+        position relative
+
+
+// Reversed
+{class_type}{grid--rev}
+    direction rtl
+    text-align left
+    > {class_type}{grid__item}
+        direction ltr
+        text-align left
+
+
+// Gutterless
+{class_type}{grid--full}
+    margin-left 0
+
+    > {class_type}{grid__item}
+        padding-left 0
+
+
+// Right-aligned
+{class_type}{grid--right}
+    text-align right
+    > {class_type}{grid__item}
+        text-align left
+
+
+// Centered
+{class_type}{grid--center}
+    text-align center
+    > {class_type}{grid__item}
+        text-align left
+
+
+// Middle-aligned
+{class_type}{grid--middle}
+
+    > {class_type}{grid__item}
+        vertical-align middle
+
+
+// Bottom-aligned
+{class_type}{grid--bottom}
+    > {class_type}{grid__item}
+        vertical-align bottom
+
+
+// Narrower gutters
+{class_type}{grid--narrow}
+    margin-left -(gutter/2)
+    > {class_type}{grid__item}
+        padding-left (gutter/2)
+
+
+// Wider gutters
+{class_type}{grid--wide}
+    margin-left: -(gutter*3)
+    > {class_type}{grid__item}
+        padding-left: (gutter*3)
+
+
+/*------------------------------------*\
+    $WIDTHS
+\*------------------------------------*/
+
+// Callig this mixin generates all the classes in a namespace.
+device_type(namespace = "")
+    create_size namespace, whole
+    create_size namespace, half, one
+    create_size namespace, third, one two
+    create_size namespace, quarter, one two three
+    create_size namespace, fifth, one two three four
+    create_size namespace, sixth, one two three four five
+    create_size namespace, eighth, one two three four five six seven
+    create_size namespace, tenth, one two three four five six seven eight nine
+    create_size namespace, twelfth, one two three four five six seven eight nine ten eleven
+
+// Generate global classes.
+device_type()
+
+// Generate breakpoint-specific classes.
+if responsive
+    for breakpoint in breakpoints
+        name = unquote(breakpoint)
+        declaration = last(breakpoint)
+
+        breakpoint-found = true
+        media = declaration
+        @media media
+            device_type(name + "-")
+

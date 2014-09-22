@@ -1,0 +1,234 @@
+/*!!!
+section: Utilities
+title: Spacers
+description: When possible all spacing [should go only down](http://csswizardry.com/2012/06/single-direction-margin-declarations/) and not up.
+jade: |
+  - for(var i=1; i<=5; i++)
+    div(class="guidedog u-spacer"+i) u-spacer#{i}
+*/
+for num in (1..8)
+  .u-spacerWrap{num}
+    margin-bottom: size(num) * -1
+  .u-spacer{num}
+    margin-bottom: size(num)
+
+.u-tabletAndSmaller-spacer2
+  @media tablet-and-smaller
+    margin-bottom: size(2)
+
+.u-tabletAndSmaller-spacer3
+  @media tablet-and-smaller
+    margin-bottom: size(3)
+
+.u-tabletAndSmaller-spacer4
+  @media tablet-and-smaller
+    margin-bottom: size(4)
+
+for num in (1..8)
+  .u-spacerTop{num}
+    margin-top: size(num)
+
+/*!!!
+section: Utilities
+title: Section Spacer
+description: Used to add spacing below (between) each individual block
+*/
+.u-blockSpacer
+  margin-bottom: block-spacer
+
+.u-blockChildrenSpacer
+  margin-bottom: block-children-spacer
+
+.u-blockChildrenWrap
+  margin-bottom: block-children-spacer * -1
+
+.u-blockSpacer--full + .u-blockSpacer--full,
+.hero + .u-sectionPadding > .u-blockSpacer--full:first-child
+  margin-top: block-spacer * -1
+
+/*!!!
+section: Utilities
+title: Font style - Italics
+description: Use to change font style to italics
+jade: p.u-italic lorem2
+*/
+.u-italic
+  font-style: italic
+
+/*!!!
+section: Utilities
+title: Font style - Bold
+description: Use to change font weight to 'bold'
+jade: p.u-bold lorem2
+*/
+.u-bold
+  font-weight: 500
+
+ /*!!!
+section: Utilities
+title: Text Align - Left
+description: Use to align text to center
+jade: |
+  .u-alignLeft
+  	p lorem2
+*/
+.u-alignLeft
+	text-align: left
+
+
+
+/*!!!
+section: Utilities
+title: Text Align - Center
+description: Use to align text to center
+jade: |
+  .u-alignCenter
+  	p lorem2
+*/
+.u-alignCenter
+	text-align: center
+
+/*!!!
+section: Utilities
+title: Text Align - Right
+description: Use to align text to the right
+jade: |
+  .u-alignRight
+  	p lorem2
+*/
+.u-alignRight
+	text-align: right
+
+/*!!!
+section: Utilities
+title: Text Align - Center (landscapePhoneAndSmaller)
+description: Use to align text to the center on landscapePhoneAndSmaller breakpoint
+jade: |
+  .u-landscapePhoneAndSmaller-alignCenter
+    p lorem2
+*/
+.u-landscapePhoneAndSmaller-alignCenter
+  @media landscape-phone-and-smaller
+    text-align: center
+
+.u-landscapeTabletAndSmaller-alignCenter
+  @media landscape-tablet-and-smaller
+    text-align: center
+
+.u-tabletAndSmaller-alignCenter
+  @media tablet-and-smaller
+    text-align: center
+
+.u-tabletAndSmaller-alignLeft
+  @media tablet-and-smaller
+    text-align: left
+
+/*!!!
+section: Utilities
+title: Text Color - White
+jade: |
+  .u-colorWhite
+  	p lorem2
+*/
+.u-colorWhite
+	color: white
+
+/*!!!
+section: Utilities
+title: Display - block
+jade: |
+  .u-block
+  	span lorem2
+*/
+.u-block
+	display: block
+
+/*!!!
+section: Utilities
+title: Display - inline-block
+jade: |
+  .u-inlineBlock
+  	span lorem2
+*/
+.u-inlineBlock
+	display: inline-block
+
+/*!!!
+section: Utilities
+title: Text Color - lightGrey
+jade: |
+  .u-lightGrey
+  	span lorem2
+*/
+.u-lightGrey
+	color: lightGrey
+
+/*!!!
+section: Utilities
+title: Text Color - mediumGrey
+jade: |
+  .u-mediumGrey
+  	span lorem2
+*/
+.u-mediumGrey
+	color: mediumGrey
+
+/*!!!
+section: Utilities
+title: Text Color - darkGrey
+jade: |
+  .u-darkGrey
+  	span lorem2
+*/
+.u-darkGrey
+	color: darkGrey
+
+/*!!!
+section: Utilities
+title: Text Color - lightEggplant
+jade: |
+  .u-darkGrey
+    span lorem2
+*/
+.u-lightEggplant
+  color: lightEggplant
+
+/*!!!
+section: Utilities
+title: Background color - lightGrey
+description: Set background color to lightGrey
+jade: |
+  .u-backgroundLightGrey
+    span lorem2
+*/
+.u-backgroundLightGrey
+  background-color: lightGrey
+
+.u-uppercase
+  text-transform: uppercase
+
+.u-sectionPadding
+  padding-top: block-spacer
+
+.u-noMargin
+  margin: 0
+
+.u-fullWidth
+  width: 100%
+
+.u-landscapePhoneAndSmaller-fullWidth
+  @media landscape-phone-and-smaller
+    width: 100%
+
+
+/*!!!
+section: Utilities
+title: Clearfix
+description: General clearfix helper.
+jade: .u-clearfix Clearfix
+*/
+.u-clearfix
+  &:after
+    content: "";
+    display: table;
+    clear: both;

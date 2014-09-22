@@ -15,5 +15,7 @@
     "jquery-1.9.1": "http://code.jquery.com/jquery-1.9.1.js",
     "guidedog": "~0.1.7"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "guidedog": "~0.1.10"
+  }
 }

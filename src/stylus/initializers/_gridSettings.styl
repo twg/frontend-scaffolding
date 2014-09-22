@@ -1,0 +1,113 @@
+article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section 
+  display: block
+
+/*!!!
+section: Grid
+description: |
+  The grid system used for Homewood is a modified version of the [CSS Wizardry Grid](https://github.com/csswizardry/csswizardry-grids). The following changes have been made:
+
+  - `.grid__item` is now `.gridItem` to follow the Homewood naming convention
+  - the gutter is now 20px (30px at larger breakpoints) instead of 24px
+  - new breakpoints, see below
+  - phoneAndSmaller = max-width 320px
+  - landscapePhoneAndSmaller = max-width 480px
+  - landscapePhone = min-width 321px and max-width 480px
+  - landscapePhoneAndLarger = min-width 321px
+  - tabletAndSmaller = max-width 768px
+  - tablet = min-width 481px and max-width 768px
+  - tabletAndLarger = min-width 481px
+  - landscapeTabletAndSmaller = max-width 1024px
+  - landscapeTablet = min-width 769px and max-width 1024px
+  - landscapeTabletAndLarger = min-width 769px
+  - desktopAndSmaller = max-width 1366px
+  - desktop = min-width 1025px and max-width 1366px
+  - desktopAndLarger = min-width 1025px
+  - largerThanDesktop = min-width 1367px
+
+jade: |
+  .grid
+    .gridItem.one-third.tabletAndSmaller-one-whole
+      .guidedog one-third
+    .gridItem.one-third.tabletAndSmaller-one-whole
+      .guidedog one-third
+    .gridItem.one-third.tabletAndSmaller-one-whole
+      .guidedog one-third
+*/
+
+grid__item = 'gridItem'
+
+//phone
+phone-and-smaller = '(max-width: 320px)'
+
+//landscapePhone
+landscape-phone-and-smaller = '(max-width: 480px)'
+landscape-phone = '(min-width: 321px) and (max-width: 480px)'
+landscape-phone-and-larger = '(min-width: 321px)'
+
+//tablet
+tablet-and-smaller = '(max-width: 768px)'
+tablet = '(min-width: 481px) and (max-width: 768px)'
+tablet-and-larger = '(min-width: 481px)'
+
+//landscapeTablet
+landscape-tablet-and-smaller = '(max-width: 1024px)'
+landscape-tablet = '(min-width: 769px) and (max-width: 1024px)'
+landscape-tablet-and-larger = '(min-width: 769px)'
+
+//desktop
+desktop-and-smaller = '(max-width: 1366px)'
+desktop = '(min-width: 1025px) and (max-width: 1366px)'
+desktop-and-larger = '(min-width: 1025px)'
+
+//largerThanDesktop
+larger-than-desktop = '(min-width: 1367px)'
+
+//breakpoints = 'phone' phone, 'phoneWide' phoneWide, 'tablet' tablet, 'tabletWide' tabletWide, 'desktop' desktop, 'desktopWide' desktopWide
+breakpoints = 'largerThanDesktop' larger-than-desktop, 'desktopAndLarger' desktop-and-larger, 'desktop' desktop, 'desktopAndSmaller' desktop-and-smaller, 'landscapeTabletAndLarger' landscape-tablet-and-larger, 'landscapeTablet' landscape-tablet, 'landscapeTabletAndSmaller' landscape-tablet-and-smaller, 'tabletAndLarger' tablet-and-larger, 'tablet' tablet, 'tabletAndSmaller' tablet-and-smaller, 'landscapePhoneAndLarger' landscape-phone-and-larger, 'landscapePhone' landscape-phone, 'landscapePhoneAndSmaller' landscape-phone-and-smaller, 'phoneAndSmaller' phone-and-smaller
+
+// grid markup fix override
+.grid
+  font-size: 0
+.gridItem
+  font-size: 16px
+
+.container
+  max-width: 1100px
+  margin: 0 auto
+  padding: 0 40px
+  transition: padding 0.2s ease-in-out
+  position: relative
+  z-index: 1
+  @media landscape-tablet-and-smaller
+    padding: 0 40px
+  @media landscape-phone-and-smaller
+    padding: 0 20px
+
+body
+  margin: 0
+  padding: 0
+
+// increase grid gutter to 30px on largerThanDesktop screens
+@media larger-than-desktop
+  .grid
+    margin-left -(gutter-large) !important
+    .gridItem
+      padding-left gutter-large
+    &.grid--narrow
+      margin-left -(gutter-large/2)
+      > .gridItem
+        padding-left (gutter-large/2)
+    &.grid--wide
+      margin-left: -(gutter-large*2)
+      > .gridItem
+        padding-left: (gutter-large*2)
+
+
+*,
+*:before,
+*:after
+  box-sizing: border-box
+
+img
+  max-width: 100%
+  display: block

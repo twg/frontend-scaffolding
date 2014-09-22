@@ -51,7 +51,6 @@ gulp.task('css', function() {
       .pipe(concat('vendor.css'))
       .pipe(gulp.dest('./dist/css'))
   }
-
 })
 
 //-- JS -----------------------------------------------------
@@ -80,6 +79,19 @@ gulp.task('javascript', function() {
   }
 })
 
+//-- Guidedog -----------------------------------------------------
+gulp.task('guidedog', function() {
+  // Guidedog js
+  gulp.src('bower_components/guidedog/dist/guidedog.min.js')
+    .pipe(gulp.dest('dist/js/'))
+
+  // Guidedog css
+  gulp.src('bower_components/guidedog/dist/guidedog.css')
+    .pipe(gulp.dest('dist/css/'))
+
+  .pipe(notify('Compiled Guidedog'))
+})
+
 //-- Server -----------------------------------------------------
 gulp.task('server', function() {
   nodemon({
@@ -101,4 +113,4 @@ gulp.task('watch', function(){
 })
 
 //-- Default -----------------------------------------------------
-gulp.task('default', ['html', 'css', 'javascript', 'server', 'watch'])
+gulp.task('default', ['html', 'css', 'javascript', 'guidedog', 'server', 'watch'])

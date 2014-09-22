@@ -1,0 +1,41 @@
+/*!!!
+section: Variables
+title: Sizing
+description: |
+  All sizing/spacing throughout Homewood is based on a [modular scale](http://modularscale.com/) with a base of 16. Use the `size(value)` function to calculate values as needed. For example `size(3)` will return `36px`.
+jade: iframe(src='http://modularscale.com/scale/?px1=16&px2=&ra1=1.5&ra2=0')
+*/
+
+// Generate a sizing value based on a 1.5 (2:3 - perfect fifth) modular scale with a base of 16
+size(value)
+  result = 16px
+  if value > 1
+    for num in (1...value)
+      result = result * 1.5
+  else
+    return result
+
+gutter = size(1)
+gutter-large = size(2)
+
+block-spacer = size(6)
+block-children-spacer = size(4)
+
+mobile-nav-width = 250px
+//nav-height = 83px
+nav-height = 91px
+
+/*!!!
+section: Colours
+title: Swatches
+description: |
+  Color variables are defined here
+swatches: [{name: darkGrey, value: "#cbcbcf"}, {name: mediumGrey, value: "#e0e0e2"}, {name: lightGrey, value: "#f7f7f8"}, {name: mediumEggplant, value: "#50505F"}, {name: lightEggplant, value: "#93939B"}, {name: error, value: "#E54848"}]
+ */
+darkGrey = #cbcbcf
+mediumGrey = #e0e0e2
+lightGrey = #f7f7f8
+darkEggplant = #313b41
+mediumEggplant = #50505F
+lightEggplant = #93939B
+error = #E54848

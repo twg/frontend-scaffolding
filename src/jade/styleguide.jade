@@ -1,0 +1,28 @@
+doctype html
+html(lang="en")
+  head
+    link(href='/css/guidedog.css', rel='stylesheet', type='text/css')
+    link(href='/css/app.css', rel='stylesheet', type='text/css')
+    script(src="/js/vendor.min.js", type="text/javascript")
+    script(src='/js/guidedog.min.js', type='text/javascript')
+    script(type='text/javascript').
+      $(document).ready(function(){
+        $('body').guidedog({
+          cssPaths: ['css/app.css']
+        }, function(){
+          $('head').append('<script type="text/javascript" src="/js/app.mini.js" />')
+        });
+      });
+    style(type="text/css").
+      nav.sg a:after{
+        display: none;
+      }
+      body{
+        max-width: 1000px !important;
+      }
+      iframe{
+        width: 100%;
+        min-height: 500px;
+      }
+  body
+    | loading...

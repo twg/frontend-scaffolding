@@ -11,4 +11,6 @@ app.use('/bower_components', serveStatic(path.join(__dirname, '/bower_components
 app.use(serveStatic(__dirname+'/dist'))
 app.listen(port)
 
+require('node-pow')('fed', port);
+
 console.log('Listening on port', port)
