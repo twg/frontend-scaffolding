@@ -24,7 +24,7 @@ description: |
 section: Variables
 title: Sizing
 description: |
-  All sizing/spacing throughout Homewood is based on a [modular scale](http://modularscale.com/) with a base of 16. Use the `size(value)` function to calculate values as needed. For example `size(3)` will return `36px`.
+  All sizing/spacing throughout the app is based on a [modular scale](http://modularscale.com/) with a base of 16. Use the `size(value)` function to calculate values as needed. For example `size(3)` will return `36px`.
 jade: iframe(src='http://modularscale.com/scale/?px1=16&px2=&ra1=1.5&ra2=0')
 *//*!!
 section: Colours

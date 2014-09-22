@@ -5,26 +5,14 @@ description: When possible all spacing [should go only down](http://csswizardry.
 jade: |
   - for(var i=1; i<=5; i++)
     div(class="guidedog u-spacer"+i) u-spacer#{i}
+  - for(var e=1; e<=5; e++)
+    div(class="guidedog u-spacerTop"+i) u-spacerTop#{i}
 */
 for num in (1..8)
   .u-spacerWrap{num}
     margin-bottom: size(num) * -1
   .u-spacer{num}
     margin-bottom: size(num)
-
-.u-tabletAndSmaller-spacer2
-  @media tablet-and-smaller
-    margin-bottom: size(2)
-
-.u-tabletAndSmaller-spacer3
-  @media tablet-and-smaller
-    margin-bottom: size(3)
-
-.u-tabletAndSmaller-spacer4
-  @media tablet-and-smaller
-    margin-bottom: size(4)
-
-for num in (1..8)
   .u-spacerTop{num}
     margin-top: size(num)
 
@@ -75,8 +63,6 @@ jade: |
 .u-alignLeft
 	text-align: left
 
-
-
 /*!!!
 section: Utilities
 title: Text Align - Center
@@ -99,39 +85,6 @@ jade: |
 .u-alignRight
 	text-align: right
 
-/*!!!
-section: Utilities
-title: Text Align - Center (landscapePhoneAndSmaller)
-description: Use to align text to the center on landscapePhoneAndSmaller breakpoint
-jade: |
-  .u-landscapePhoneAndSmaller-alignCenter
-    p lorem2
-*/
-.u-landscapePhoneAndSmaller-alignCenter
-  @media landscape-phone-and-smaller
-    text-align: center
-
-.u-landscapeTabletAndSmaller-alignCenter
-  @media landscape-tablet-and-smaller
-    text-align: center
-
-.u-tabletAndSmaller-alignCenter
-  @media tablet-and-smaller
-    text-align: center
-
-.u-tabletAndSmaller-alignLeft
-  @media tablet-and-smaller
-    text-align: left
-
-/*!!!
-section: Utilities
-title: Text Color - White
-jade: |
-  .u-colorWhite
-  	p lorem2
-*/
-.u-colorWhite
-	color: white
 
 /*!!!
 section: Utilities
@@ -152,74 +105,6 @@ jade: |
 */
 .u-inlineBlock
 	display: inline-block
-
-/*!!!
-section: Utilities
-title: Text Color - lightGrey
-jade: |
-  .u-lightGrey
-  	span lorem2
-*/
-.u-lightGrey
-	color: lightGrey
-
-/*!!!
-section: Utilities
-title: Text Color - mediumGrey
-jade: |
-  .u-mediumGrey
-  	span lorem2
-*/
-.u-mediumGrey
-	color: mediumGrey
-
-/*!!!
-section: Utilities
-title: Text Color - darkGrey
-jade: |
-  .u-darkGrey
-  	span lorem2
-*/
-.u-darkGrey
-	color: darkGrey
-
-/*!!!
-section: Utilities
-title: Text Color - lightEggplant
-jade: |
-  .u-darkGrey
-    span lorem2
-*/
-.u-lightEggplant
-  color: lightEggplant
-
-/*!!!
-section: Utilities
-title: Background color - lightGrey
-description: Set background color to lightGrey
-jade: |
-  .u-backgroundLightGrey
-    span lorem2
-*/
-.u-backgroundLightGrey
-  background-color: lightGrey
-
-.u-uppercase
-  text-transform: uppercase
-
-.u-sectionPadding
-  padding-top: block-spacer
-
-.u-noMargin
-  margin: 0
-
-.u-fullWidth
-  width: 100%
-
-.u-landscapePhoneAndSmaller-fullWidth
-  @media landscape-phone-and-smaller
-    width: 100%
-
 
 /*!!!
 section: Utilities
