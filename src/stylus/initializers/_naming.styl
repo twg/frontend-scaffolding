@@ -19,7 +19,7 @@ description: |
 /*!!!
 section: Folder Structure
 description: |
-  - objects : Most of the code should ideally live within this directory. The various components of the site are each broken down into their own self-contained stylesheet with the name of the component (ex `_buttons.styl`). These files should use plural names when possible instead of singular (`_buttons.styl` not `_button.styl`). Multi-worded objects should use camelCase (ex. `_infoTiles.styl` not `_info-tiles.styl`). One object file should not depend on another object file, meaning the order that objects are loaded should be irrelevant. 
+  - objects : Most of the code should ideally live within this directory. The various components of the site are each broken down into their own self-contained stylesheet with the name of the component (ex `_buttons.styl`). These files should use plural names when possible instead of singular (`_buttons.styl` not `_button.styl`). Multi-worded objects should use camelCase (ex. `_infoTiles.styl` not `_info-tiles.styl`). One object file should not depend on another object file, meaning the order that objects are loaded should be irrelevant.
   - initializers : Code that needs to be loaded before the objects should go here. This would include things that objects would need to reference like colour variables, mixins, etc.
   - pages : Page specific overrides go here. Ideally, these should be used as little as possible, as writing extensive page specific overrides leads to code that is not re-usable.
 */

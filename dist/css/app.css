@@ -17,7 +17,7 @@ description: |
 *//*!!
 section: Folder Structure
 description: |
-  - objects : Most of the code should ideally live within this directory. The various components of the site are each broken down into their own self-contained stylesheet with the name of the component (ex `_buttons.styl`). These files should use plural names when possible instead of singular (`_buttons.styl` not `_button.styl`). Multi-worded objects should use camelCase (ex. `_infoTiles.styl` not `_info-tiles.styl`). One object file should not depend on another object file, meaning the order that objects are loaded should be irrelevant. 
+  - objects : Most of the code should ideally live within this directory. The various components of the site are each broken down into their own self-contained stylesheet with the name of the component (ex `_buttons.styl`). These files should use plural names when possible instead of singular (`_buttons.styl` not `_button.styl`). Multi-worded objects should use camelCase (ex. `_infoTiles.styl` not `_info-tiles.styl`). One object file should not depend on another object file, meaning the order that objects are loaded should be irrelevant.
   - initializers : Code that needs to be loaded before the objects should go here. This would include things that objects would need to reference like colour variables, mixins, etc.
   - pages : Page specific overrides go here. Ideally, these should be used as little as possible, as writing extensive page specific overrides leads to code that is not re-usable.
 *//*!!
@@ -72,10 +72,14 @@ jade: |
     | foo test
   - for(var i=1; i<=5; i++)
     div(class="guidedog u-spacer"+i) u-spacer#{i}
+*//*!!
+section: Utilities
+title: Padding
+description: Utility for Padding all around using size() method
+jade: |
   - for(var i=1; i<=5; i++)
-    div(class="guidedog u-cat"+i) u-cat#{i}
-
-*/.u-spacerWrap1{margin-bottom:-16px}.u-spacer1{margin-bottom:16px}.u-spacerTop1{margin-top:16px}.u-padding1{padding:16px}.u-spacerWrap2{margin-bottom:-24px}.u-spacer2{margin-bottom:24px}.u-spacerTop2{margin-top:24px}.u-padding2{padding:24px}.u-spacerWrap3{margin-bottom:-36px}.u-spacer3{margin-bottom:36px}.u-spacerTop3{margin-top:36px}.u-padding3{padding:36px}.u-spacerWrap4{margin-bottom:-54px}.u-spacer4{margin-bottom:54px}.u-spacerTop4{margin-top:54px}.u-padding4{padding:54px}.u-spacerWrap5{margin-bottom:-81px}.u-spacer5{margin-bottom:81px}.u-spacerTop5{margin-top:81px}.u-padding5{padding:81px}.u-spacerWrap6{margin-bottom:-121.5px}.u-spacer6{margin-bottom:121.5px}.u-spacerTop6{margin-top:121.5px}.u-padding6{padding:121.5px}.u-spacerWrap7{margin-bottom:-182.25px}.u-spacer7{margin-bottom:182.25px}.u-spacerTop7{margin-top:182.25px}.u-padding7{padding:182.25px}.u-spacerWrap8{margin-bottom:-273.38px}.u-spacer8{margin-bottom:273.38px}.u-spacerTop8{margin-top:273.38px}.u-padding8{padding:273.38px}/*!!
+    div(class="guidedog u-padding"+i) u-padding#{i}
+*/.u-spacerWrap1{margin-bottom:-16px}.u-spacer1{margin-bottom:16px}.u-spacerTop1{margin-top:16px}.u-padding1{padding:16px}.u-spacerWrap2{margin-bottom:-24px}.u-spacer2{margin-bottom:24px}.u-spacerTop2{margin-top:24px}.u-padding2{padding:24px}.u-spacerWrap3{margin-bottom:-36px}.u-spacer3{margin-bottom:36px}.u-spacerTop3{margin-top:36px}.u-padding3{padding:36px}.u-spacerWrap4{margin-bottom:-54px}.u-spacer4{margin-bottom:54px}.u-spacerTop4{margin-top:54px}.u-padding4{padding:54px}.u-spacerWrap5{margin-bottom:-81px}.u-spacer5{margin-bottom:81px}.u-spacerTop5{margin-top:81px}.u-padding5{padding:81px}/*!!
 section: Utilities
 title: Section Spacer
 description: Used to add spacing below (between) each individual block

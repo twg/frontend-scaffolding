@@ -35,7 +35,7 @@ gulp.task('html', function() {
 gulp.task('css', function() {
   // custom CSS
   gulp.src('./src/stylus/app.styl')
-    .pipe(stylus())
+    .pipe(stylus({cache: false}))
     .on("error", notify.onError(function (error) {
       return "Stylus error: " + error.message
     }))
@@ -97,7 +97,7 @@ gulp.task('server', function() {
   nodemon({
     verbose: false,
     script: 'server.js',
-    watch: ['source', 'server.js'],
+    watch: ['src', 'server.js'],
     ext: 'js json',
     env: {
       NODE_ENV: 'development'

@@ -7,12 +7,18 @@ jade: |
     | foo test
   - for(var i=1; i<=5; i++)
     div(class="guidedog u-spacer"+i) u-spacer#{i}
-  - for(var i=1; i<=5; i++)
-    div(class="guidedog u-cat"+i) u-cat#{i}
-  - for(var i=1; i<=5; i++)
-    div(class="guidedog u-dog"+i) u-dog#{i}
 */
-for num in (1..8)
+
+/*!!!
+section: Utilities
+title: Padding
+description: Utility for Padding all around using size() method
+jade: |
+  - for(var i=1; i<=5; i++)
+    div(class="guidedog u-padding"+i) u-padding#{i}
+*/
+
+for num in (1..5)
   .u-spacerWrap{num}
     margin-bottom: size(num) * -1
   .u-spacer{num}
@@ -21,6 +27,7 @@ for num in (1..8)
     margin-top: size(num)
   .u-padding{num}
     padding: size(num)
+
 
 /*!!!
 section: Utilities
