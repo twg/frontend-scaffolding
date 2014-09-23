@@ -69,8 +69,13 @@ title: Spacers
 description: When possible all spacing [should go only down](http://csswizardry.com/2012/06/single-direction-margin-declarations/) and not up.
 jade: |
   - for(var i=1; i<=5; i++)
+    | foo test
+  - for(var i=1; i<=5; i++)
     div(class="guidedog u-spacer"+i) u-spacer#{i}
-*/.u-spacerWrap1{margin-bottom:-16px}.u-spacer1{margin-bottom:16px}.u-spacerWrap2{margin-bottom:-24px}.u-spacer2{margin-bottom:24px}.u-spacerWrap3{margin-bottom:-36px}.u-spacer3{margin-bottom:36px}.u-spacerWrap4{margin-bottom:-54px}.u-spacer4{margin-bottom:54px}.u-spacerWrap5{margin-bottom:-81px}.u-spacer5{margin-bottom:81px}.u-spacerWrap6{margin-bottom:-121.5px}.u-spacer6{margin-bottom:121.5px}.u-spacerWrap7{margin-bottom:-182.25px}.u-spacer7{margin-bottom:182.25px}.u-spacerWrap8{margin-bottom:-273.38px}.u-spacer8{margin-bottom:273.38px}@media (max-width:768px){.u-tabletAndSmaller-spacer2{margin-bottom:24px}}@media (max-width:768px){.u-tabletAndSmaller-spacer3{margin-bottom:36px}}@media (max-width:768px){.u-tabletAndSmaller-spacer4{margin-bottom:54px}}.u-spacerTop1{margin-top:16px}.u-spacerTop2{margin-top:24px}.u-spacerTop3{margin-top:36px}.u-spacerTop4{margin-top:54px}.u-spacerTop5{margin-top:81px}.u-spacerTop6{margin-top:121.5px}.u-spacerTop7{margin-top:182.25px}.u-spacerTop8{margin-top:273.38px}/*!!
+  - for(var i=1; i<=5; i++)
+    div(class="guidedog u-cat"+i) u-cat#{i}
+
+*/.u-spacerWrap1{margin-bottom:-16px}.u-spacer1{margin-bottom:16px}.u-spacerTop1{margin-top:16px}.u-padding1{padding:16px}.u-spacerWrap2{margin-bottom:-24px}.u-spacer2{margin-bottom:24px}.u-spacerTop2{margin-top:24px}.u-padding2{padding:24px}.u-spacerWrap3{margin-bottom:-36px}.u-spacer3{margin-bottom:36px}.u-spacerTop3{margin-top:36px}.u-padding3{padding:36px}.u-spacerWrap4{margin-bottom:-54px}.u-spacer4{margin-bottom:54px}.u-spacerTop4{margin-top:54px}.u-padding4{padding:54px}.u-spacerWrap5{margin-bottom:-81px}.u-spacer5{margin-bottom:81px}.u-spacerTop5{margin-top:81px}.u-padding5{padding:81px}.u-spacerWrap6{margin-bottom:-121.5px}.u-spacer6{margin-bottom:121.5px}.u-spacerTop6{margin-top:121.5px}.u-padding6{padding:121.5px}.u-spacerWrap7{margin-bottom:-182.25px}.u-spacer7{margin-bottom:182.25px}.u-spacerTop7{margin-top:182.25px}.u-padding7{padding:182.25px}.u-spacerWrap8{margin-bottom:-273.38px}.u-spacer8{margin-bottom:273.38px}.u-spacerTop8{margin-top:273.38px}.u-padding8{padding:273.38px}/*!!
 section: Utilities
 title: Section Spacer
 description: Used to add spacing below (between) each individual block
@@ -107,19 +112,6 @@ jade: |
   	p lorem2
 */.u-alignRight{text-align:right}/*!!
 section: Utilities
-title: Text Align - Center (landscapePhoneAndSmaller)
-description: Use to align text to the center on landscapePhoneAndSmaller breakpoint
-jade: |
-  .u-landscapePhoneAndSmaller-alignCenter
-    p lorem2
-*/@media (max-width:480px){.u-landscapePhoneAndSmaller-alignCenter{text-align:center}}@media (max-width:1024px){.u-landscapeTabletAndSmaller-alignCenter{text-align:center}}@media (max-width:768px){.u-tabletAndSmaller-alignCenter{text-align:center}}@media (max-width:768px){.u-tabletAndSmaller-alignLeft{text-align:left}}/*!!
-section: Utilities
-title: Text Color - White
-jade: |
-  .u-colorWhite
-  	p lorem2
-*/.u-colorWhite{color:#fff}/*!!
-section: Utilities
 title: Display - block
 jade: |
   .u-block
@@ -131,37 +123,6 @@ jade: |
   .u-inlineBlock
   	span lorem2
 */.u-inlineBlock{display:inline-block}/*!!
-section: Utilities
-title: Text Color - lightGrey
-jade: |
-  .u-lightGrey
-  	span lorem2
-*/.u-lightGrey{color:#f7f7f8}/*!!
-section: Utilities
-title: Text Color - mediumGrey
-jade: |
-  .u-mediumGrey
-  	span lorem2
-*/.u-mediumGrey{color:#e0e0e2}/*!!
-section: Utilities
-title: Text Color - darkGrey
-jade: |
-  .u-darkGrey
-  	span lorem2
-*/.u-darkGrey{color:#cbcbcf}/*!!
-section: Utilities
-title: Text Color - lightEggplant
-jade: |
-  .u-darkGrey
-    span lorem2
-*/.u-lightEggplant{color:#93939b}/*!!
-section: Utilities
-title: Background color - lightGrey
-description: Set background color to lightGrey
-jade: |
-  .u-backgroundLightGrey
-    span lorem2
-*/.u-backgroundLightGrey{background-color:#f7f7f8}.u-uppercase{text-transform:uppercase}.u-sectionPadding{padding-top:121.5px}.u-noMargin{margin:0}.u-fullWidth{width:100%}@media (max-width:480px){.u-landscapePhoneAndSmaller-fullWidth{width:100%}}/*!!
 section: Utilities
 title: Clearfix
 description: General clearfix helper.

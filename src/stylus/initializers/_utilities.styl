@@ -4,9 +4,13 @@ title: Spacers
 description: When possible all spacing [should go only down](http://csswizardry.com/2012/06/single-direction-margin-declarations/) and not up.
 jade: |
   - for(var i=1; i<=5; i++)
+    | foo test
+  - for(var i=1; i<=5; i++)
     div(class="guidedog u-spacer"+i) u-spacer#{i}
-  - for(var e=1; e<=5; e++)
-    div(class="guidedog u-spacerTop"+i) u-spacerTop#{i}
+  - for(var i=1; i<=5; i++)
+    div(class="guidedog u-cat"+i) u-cat#{i}
+  - for(var i=1; i<=5; i++)
+    div(class="guidedog u-dog"+i) u-dog#{i}
 */
 for num in (1..8)
   .u-spacerWrap{num}
@@ -15,6 +19,8 @@ for num in (1..8)
     margin-bottom: size(num)
   .u-spacerTop{num}
     margin-top: size(num)
+  .u-padding{num}
+    padding: size(num)
 
 /*!!!
 section: Utilities
