@@ -12,21 +12,36 @@ description: |
 jade: |
   .grid.grid--middle.grid--rev
     - for(var i=1; i<=3; i++)
-      .grid-1of4.grid-1of2--portable 
+      .grid-1of4.grid-1of2--portable
         .guidedog grid #{i}
-    .grid-1of4.grid-1of2--portable 
-      .guidedog lorem2 
+    .grid-1of4.grid-1of2--portable
+      .guidedog lorem2
 */
 
 baseFontSize := 16px
 columns := 12
 breakpoints := {
-  large: {breakpoint: '(min-width: 481px)', gutter: 24px},
-  desk: {breakpoint: '(min-width: 1024px)', gutter: 32px},
-  lap: {breakpoint: '(min-width: 481px) and (max-width: 1023px)', gutter: 24px},
-  portable: {breakpoint: '(max-width: 1023px)', gutter: 24px},
-  palm: {breakpoint: '(max-width: 480px)', gutter: 16px}
+  large: {breakpoint: '(min-width: 481px)', gutter: size(2)},
+  desk: {breakpoint: '(min-width: 1024px)', gutter: size(3)},
+  lap: {breakpoint: '(min-width: 481px) and (max-width: 1023px)', gutter: size(2)},
+  portable: {breakpoint: '(max-width: 1023px)', gutter: size(2)},
+  palm: {breakpoint: '(max-width: 480px)', gutter: size(1)}
 }
+
+
+
+/*!!!
+section: Media Query
+description: |
+  To style elements at different screen sizes we use a function [i.e. breakpoint(large)] to call the media query and pass to it a block with the new styling.
+*/
+
+//define media queries
+breakpoint(bp)
+  for key, value in breakpoints
+    if key == bp
+      @media value.breakpoint
+        {block}
 
 .grid
   font-size: 0
