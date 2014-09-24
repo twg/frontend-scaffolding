@@ -4,10 +4,13 @@ title: Spacers
 description: When possible all spacing [should go only down](http://csswizardry.com/2012/06/single-direction-margin-declarations/) and not up.
 jade: |
   - for(var i=1; i<=5; i++)
-    | foo test
-  - for(var i=1; i<=5; i++)
     div(class="guidedog u-spacer"+i) u-spacer#{i}
 */
+for num in (1..5)
+  +replicate(s('.u-spacerWrap%s', num))
+    margin-bottom: size(num) * -1
+  +replicate(s('.u-spacer%s', num))
+    margin-bottom: size(num)
 
 /*!!!
 section: Utilities
@@ -18,12 +21,6 @@ jade: |
     div(class="guidedog u-padding"+i) u-padding#{i}
 */
 for num in (1..5)
-  +replicate(s('.u-spacerWrap%s', num))
-    margin-bottom: size(num) * -1
-
-  +replicate(s('.u-spacer%s', num))
-    margin-bottom: size(num)
-
   +replicate(s('.u-padding%s', num))
     padding: size(num)
 
@@ -31,9 +28,7 @@ for num in (1..5)
 section: Utilities
 title: Text Align - Left
 description: Use to align text to center
-jade: |
-  .u-alignLeft
-  	p lorem2
+jade: .u-alignLeft lorem5
 */
 +replicate('.u-alignLeft')
 	text-align: left
@@ -42,9 +37,7 @@ jade: |
 section: Utilities
 title: Text Align - Center
 description: Use to align text to center
-jade: |
-  .u-alignCenter
-  	p lorem2
+jade: .u-alignCenter lorem5
 */
 +replicate('.u-alignCenter')
 	text-align: center
@@ -53,9 +46,7 @@ jade: |
 section: Utilities
 title: Text Align - Right
 description: Use to align text to the right
-jade: |
-  .u-alignRight
-  	p lorem2
+jade: .u-alignRight lorem5
 */
 +replicate('.u-alignRight')
 	text-align: right
@@ -63,9 +54,7 @@ jade: |
 /*!!!
 section: Utilities
 title: Display - block
-jade: |
-  .u-block
-  	span lorem2
+jade: .u-block Block Element
 */
 +replicate('.u-block')
 	display: block
@@ -73,12 +62,19 @@ jade: |
 /*!!!
 section: Utilities
 title: Display - inline-block
-jade: |
-  .u-inlineBlock
-  	span lorem2
+jade: .u-inlineBlock Inline-Block Element
 */
 +replicate('.u-inlineBlock')
 	display: inline-block
+
+/*!!!
+section: Utilities
+title: Relative
+description: Set position relative on an element.
+jade: .u-relative Position Relative
+*/
++replicate('.u-relative')
+  position: relative
 
 /*!!!
 section: Utilities
