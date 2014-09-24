@@ -67,50 +67,43 @@ title: Spacers
 description: When possible all spacing [should go only down](http://csswizardry.com/2012/06/single-direction-margin-declarations/) and not up.
 jade: |
   - for(var i=1; i<=5; i++)
-    | foo test
-  - for(var i=1; i<=5; i++)
     div(class="guidedog u-spacer"+i) u-spacer#{i}
-*//*!!
+*/.u-spacerWrap1{margin-bottom:-16px}@media (min-width:481px){.u-spacerWrap1--large{margin-bottom:-16px}}@media (min-width:1024px){.u-spacerWrap1--desk{margin-bottom:-16px}}@media (min-width:481px) and (max-width:1023px){.u-spacerWrap1--lap{margin-bottom:-16px}}@media (max-width:1023px){.u-spacerWrap1--portable{margin-bottom:-16px}}@media (max-width:480px){.u-spacerWrap1--palm{margin-bottom:-16px}}.u-spacer1{margin-bottom:16px}@media (min-width:481px){.u-spacer1--large{margin-bottom:16px}}@media (min-width:1024px){.u-spacer1--desk{margin-bottom:16px}}@media (min-width:481px) and (max-width:1023px){.u-spacer1--lap{margin-bottom:16px}}@media (max-width:1023px){.u-spacer1--portable{margin-bottom:16px}}@media (max-width:480px){.u-spacer1--palm{margin-bottom:16px}}.u-spacerWrap2{margin-bottom:-24px}@media (min-width:481px){.u-spacerWrap2--large{margin-bottom:-24px}}@media (min-width:1024px){.u-spacerWrap2--desk{margin-bottom:-24px}}@media (min-width:481px) and (max-width:1023px){.u-spacerWrap2--lap{margin-bottom:-24px}}@media (max-width:1023px){.u-spacerWrap2--portable{margin-bottom:-24px}}@media (max-width:480px){.u-spacerWrap2--palm{margin-bottom:-24px}}.u-spacer2{margin-bottom:24px}@media (min-width:481px){.u-spacer2--large{margin-bottom:24px}}@media (min-width:1024px){.u-spacer2--desk{margin-bottom:24px}}@media (min-width:481px) and (max-width:1023px){.u-spacer2--lap{margin-bottom:24px}}@media (max-width:1023px){.u-spacer2--portable{margin-bottom:24px}}@media (max-width:480px){.u-spacer2--palm{margin-bottom:24px}}.u-spacerWrap3{margin-bottom:-36px}@media (min-width:481px){.u-spacerWrap3--large{margin-bottom:-36px}}@media (min-width:1024px){.u-spacerWrap3--desk{margin-bottom:-36px}}@media (min-width:481px) and (max-width:1023px){.u-spacerWrap3--lap{margin-bottom:-36px}}@media (max-width:1023px){.u-spacerWrap3--portable{margin-bottom:-36px}}@media (max-width:480px){.u-spacerWrap3--palm{margin-bottom:-36px}}.u-spacer3{margin-bottom:36px}@media (min-width:481px){.u-spacer3--large{margin-bottom:36px}}@media (min-width:1024px){.u-spacer3--desk{margin-bottom:36px}}@media (min-width:481px) and (max-width:1023px){.u-spacer3--lap{margin-bottom:36px}}@media (max-width:1023px){.u-spacer3--portable{margin-bottom:36px}}@media (max-width:480px){.u-spacer3--palm{margin-bottom:36px}}.u-spacerWrap4{margin-bottom:-54px}@media (min-width:481px){.u-spacerWrap4--large{margin-bottom:-54px}}@media (min-width:1024px){.u-spacerWrap4--desk{margin-bottom:-54px}}@media (min-width:481px) and (max-width:1023px){.u-spacerWrap4--lap{margin-bottom:-54px}}@media (max-width:1023px){.u-spacerWrap4--portable{margin-bottom:-54px}}@media (max-width:480px){.u-spacerWrap4--palm{margin-bottom:-54px}}.u-spacer4{margin-bottom:54px}@media (min-width:481px){.u-spacer4--large{margin-bottom:54px}}@media (min-width:1024px){.u-spacer4--desk{margin-bottom:54px}}@media (min-width:481px) and (max-width:1023px){.u-spacer4--lap{margin-bottom:54px}}@media (max-width:1023px){.u-spacer4--portable{margin-bottom:54px}}@media (max-width:480px){.u-spacer4--palm{margin-bottom:54px}}.u-spacerWrap5{margin-bottom:-81px}@media (min-width:481px){.u-spacerWrap5--large{margin-bottom:-81px}}@media (min-width:1024px){.u-spacerWrap5--desk{margin-bottom:-81px}}@media (min-width:481px) and (max-width:1023px){.u-spacerWrap5--lap{margin-bottom:-81px}}@media (max-width:1023px){.u-spacerWrap5--portable{margin-bottom:-81px}}@media (max-width:480px){.u-spacerWrap5--palm{margin-bottom:-81px}}.u-spacer5{margin-bottom:81px}@media (min-width:481px){.u-spacer5--large{margin-bottom:81px}}@media (min-width:1024px){.u-spacer5--desk{margin-bottom:81px}}@media (min-width:481px) and (max-width:1023px){.u-spacer5--lap{margin-bottom:81px}}@media (max-width:1023px){.u-spacer5--portable{margin-bottom:81px}}@media (max-width:480px){.u-spacer5--palm{margin-bottom:81px}}/*!!
 section: Utilities
 title: Padding
 description: Utility for Padding all around using size() method
 jade: |
   - for(var i=1; i<=5; i++)
     div(class="guidedog u-padding"+i) u-padding#{i}
-*/.u-spacerWrap1{margin-bottom:-16px}@media (min-width:481px){.u-spacerWrap1--large{margin-bottom:-16px}}@media (min-width:1024px){.u-spacerWrap1--desk{margin-bottom:-16px}}@media (min-width:481px) and (max-width:1023px){.u-spacerWrap1--lap{margin-bottom:-16px}}@media (max-width:1023px){.u-spacerWrap1--portable{margin-bottom:-16px}}@media (max-width:480px){.u-spacerWrap1--palm{margin-bottom:-16px}}.u-spacer1{margin-bottom:16px}@media (min-width:481px){.u-spacer1--large{margin-bottom:16px}}@media (min-width:1024px){.u-spacer1--desk{margin-bottom:16px}}@media (min-width:481px) and (max-width:1023px){.u-spacer1--lap{margin-bottom:16px}}@media (max-width:1023px){.u-spacer1--portable{margin-bottom:16px}}@media (max-width:480px){.u-spacer1--palm{margin-bottom:16px}}.u-padding1{padding:16px}@media (min-width:481px){.u-padding1--large{padding:16px}}@media (min-width:1024px){.u-padding1--desk{padding:16px}}@media (min-width:481px) and (max-width:1023px){.u-padding1--lap{padding:16px}}@media (max-width:1023px){.u-padding1--portable{padding:16px}}@media (max-width:480px){.u-padding1--palm{padding:16px}}.u-spacerWrap2{margin-bottom:-24px}@media (min-width:481px){.u-spacerWrap2--large{margin-bottom:-24px}}@media (min-width:1024px){.u-spacerWrap2--desk{margin-bottom:-24px}}@media (min-width:481px) and (max-width:1023px){.u-spacerWrap2--lap{margin-bottom:-24px}}@media (max-width:1023px){.u-spacerWrap2--portable{margin-bottom:-24px}}@media (max-width:480px){.u-spacerWrap2--palm{margin-bottom:-24px}}.u-spacer2{margin-bottom:24px}@media (min-width:481px){.u-spacer2--large{margin-bottom:24px}}@media (min-width:1024px){.u-spacer2--desk{margin-bottom:24px}}@media (min-width:481px) and (max-width:1023px){.u-spacer2--lap{margin-bottom:24px}}@media (max-width:1023px){.u-spacer2--portable{margin-bottom:24px}}@media (max-width:480px){.u-spacer2--palm{margin-bottom:24px}}.u-padding2{padding:24px}@media (min-width:481px){.u-padding2--large{padding:24px}}@media (min-width:1024px){.u-padding2--desk{padding:24px}}@media (min-width:481px) and (max-width:1023px){.u-padding2--lap{padding:24px}}@media (max-width:1023px){.u-padding2--portable{padding:24px}}@media (max-width:480px){.u-padding2--palm{padding:24px}}.u-spacerWrap3{margin-bottom:-36px}@media (min-width:481px){.u-spacerWrap3--large{margin-bottom:-36px}}@media (min-width:1024px){.u-spacerWrap3--desk{margin-bottom:-36px}}@media (min-width:481px) and (max-width:1023px){.u-spacerWrap3--lap{margin-bottom:-36px}}@media (max-width:1023px){.u-spacerWrap3--portable{margin-bottom:-36px}}@media (max-width:480px){.u-spacerWrap3--palm{margin-bottom:-36px}}.u-spacer3{margin-bottom:36px}@media (min-width:481px){.u-spacer3--large{margin-bottom:36px}}@media (min-width:1024px){.u-spacer3--desk{margin-bottom:36px}}@media (min-width:481px) and (max-width:1023px){.u-spacer3--lap{margin-bottom:36px}}@media (max-width:1023px){.u-spacer3--portable{margin-bottom:36px}}@media (max-width:480px){.u-spacer3--palm{margin-bottom:36px}}.u-padding3{padding:36px}@media (min-width:481px){.u-padding3--large{padding:36px}}@media (min-width:1024px){.u-padding3--desk{padding:36px}}@media (min-width:481px) and (max-width:1023px){.u-padding3--lap{padding:36px}}@media (max-width:1023px){.u-padding3--portable{padding:36px}}@media (max-width:480px){.u-padding3--palm{padding:36px}}.u-spacerWrap4{margin-bottom:-54px}@media (min-width:481px){.u-spacerWrap4--large{margin-bottom:-54px}}@media (min-width:1024px){.u-spacerWrap4--desk{margin-bottom:-54px}}@media (min-width:481px) and (max-width:1023px){.u-spacerWrap4--lap{margin-bottom:-54px}}@media (max-width:1023px){.u-spacerWrap4--portable{margin-bottom:-54px}}@media (max-width:480px){.u-spacerWrap4--palm{margin-bottom:-54px}}.u-spacer4{margin-bottom:54px}@media (min-width:481px){.u-spacer4--large{margin-bottom:54px}}@media (min-width:1024px){.u-spacer4--desk{margin-bottom:54px}}@media (min-width:481px) and (max-width:1023px){.u-spacer4--lap{margin-bottom:54px}}@media (max-width:1023px){.u-spacer4--portable{margin-bottom:54px}}@media (max-width:480px){.u-spacer4--palm{margin-bottom:54px}}.u-padding4{padding:54px}@media (min-width:481px){.u-padding4--large{padding:54px}}@media (min-width:1024px){.u-padding4--desk{padding:54px}}@media (min-width:481px) and (max-width:1023px){.u-padding4--lap{padding:54px}}@media (max-width:1023px){.u-padding4--portable{padding:54px}}@media (max-width:480px){.u-padding4--palm{padding:54px}}.u-spacerWrap5{margin-bottom:-81px}@media (min-width:481px){.u-spacerWrap5--large{margin-bottom:-81px}}@media (min-width:1024px){.u-spacerWrap5--desk{margin-bottom:-81px}}@media (min-width:481px) and (max-width:1023px){.u-spacerWrap5--lap{margin-bottom:-81px}}@media (max-width:1023px){.u-spacerWrap5--portable{margin-bottom:-81px}}@media (max-width:480px){.u-spacerWrap5--palm{margin-bottom:-81px}}.u-spacer5{margin-bottom:81px}@media (min-width:481px){.u-spacer5--large{margin-bottom:81px}}@media (min-width:1024px){.u-spacer5--desk{margin-bottom:81px}}@media (min-width:481px) and (max-width:1023px){.u-spacer5--lap{margin-bottom:81px}}@media (max-width:1023px){.u-spacer5--portable{margin-bottom:81px}}@media (max-width:480px){.u-spacer5--palm{margin-bottom:81px}}.u-padding5{padding:81px}@media (min-width:481px){.u-padding5--large{padding:81px}}@media (min-width:1024px){.u-padding5--desk{padding:81px}}@media (min-width:481px) and (max-width:1023px){.u-padding5--lap{padding:81px}}@media (max-width:1023px){.u-padding5--portable{padding:81px}}@media (max-width:480px){.u-padding5--palm{padding:81px}}/*!!
+*/.u-padding1{padding:16px}@media (min-width:481px){.u-padding1--large{padding:16px}}@media (min-width:1024px){.u-padding1--desk{padding:16px}}@media (min-width:481px) and (max-width:1023px){.u-padding1--lap{padding:16px}}@media (max-width:1023px){.u-padding1--portable{padding:16px}}@media (max-width:480px){.u-padding1--palm{padding:16px}}.u-padding2{padding:24px}@media (min-width:481px){.u-padding2--large{padding:24px}}@media (min-width:1024px){.u-padding2--desk{padding:24px}}@media (min-width:481px) and (max-width:1023px){.u-padding2--lap{padding:24px}}@media (max-width:1023px){.u-padding2--portable{padding:24px}}@media (max-width:480px){.u-padding2--palm{padding:24px}}.u-padding3{padding:36px}@media (min-width:481px){.u-padding3--large{padding:36px}}@media (min-width:1024px){.u-padding3--desk{padding:36px}}@media (min-width:481px) and (max-width:1023px){.u-padding3--lap{padding:36px}}@media (max-width:1023px){.u-padding3--portable{padding:36px}}@media (max-width:480px){.u-padding3--palm{padding:36px}}.u-padding4{padding:54px}@media (min-width:481px){.u-padding4--large{padding:54px}}@media (min-width:1024px){.u-padding4--desk{padding:54px}}@media (min-width:481px) and (max-width:1023px){.u-padding4--lap{padding:54px}}@media (max-width:1023px){.u-padding4--portable{padding:54px}}@media (max-width:480px){.u-padding4--palm{padding:54px}}.u-padding5{padding:81px}@media (min-width:481px){.u-padding5--large{padding:81px}}@media (min-width:1024px){.u-padding5--desk{padding:81px}}@media (min-width:481px) and (max-width:1023px){.u-padding5--lap{padding:81px}}@media (max-width:1023px){.u-padding5--portable{padding:81px}}@media (max-width:480px){.u-padding5--palm{padding:81px}}/*!!
 section: Utilities
 title: Text Align - Left
 description: Use to align text to center
-jade: |
-  .u-alignLeft
-  	p lorem2
+jade: .u-alignLeft lorem5
 */.u-alignLeft{text-align:left}@media (min-width:481px){.u-alignLeft--large{text-align:left}}@media (min-width:1024px){.u-alignLeft--desk{text-align:left}}@media (min-width:481px) and (max-width:1023px){.u-alignLeft--lap{text-align:left}}@media (max-width:1023px){.u-alignLeft--portable{text-align:left}}@media (max-width:480px){.u-alignLeft--palm{text-align:left}}/*!!
 section: Utilities
 title: Text Align - Center
 description: Use to align text to center
-jade: |
-  .u-alignCenter
-  	p lorem2
+jade: .u-alignCenter lorem5
 */.u-alignCenter{text-align:center}@media (min-width:481px){.u-alignCenter--large{text-align:center}}@media (min-width:1024px){.u-alignCenter--desk{text-align:center}}@media (min-width:481px) and (max-width:1023px){.u-alignCenter--lap{text-align:center}}@media (max-width:1023px){.u-alignCenter--portable{text-align:center}}@media (max-width:480px){.u-alignCenter--palm{text-align:center}}/*!!
 section: Utilities
 title: Text Align - Right
 description: Use to align text to the right
-jade: |
-  .u-alignRight
-  	p lorem2
+jade: .u-alignRight lorem5
 */.u-alignRight{text-align:right}@media (min-width:481px){.u-alignRight--large{text-align:right}}@media (min-width:1024px){.u-alignRight--desk{text-align:right}}@media (min-width:481px) and (max-width:1023px){.u-alignRight--lap{text-align:right}}@media (max-width:1023px){.u-alignRight--portable{text-align:right}}@media (max-width:480px){.u-alignRight--palm{text-align:right}}/*!!
 section: Utilities
 title: Display - block
-jade: |
-  .u-block
-  	span lorem2
+jade: .u-block Block Element
 */.u-block{display:block}@media (min-width:481px){.u-block--large{display:block}}@media (min-width:1024px){.u-block--desk{display:block}}@media (min-width:481px) and (max-width:1023px){.u-block--lap{display:block}}@media (max-width:1023px){.u-block--portable{display:block}}@media (max-width:480px){.u-block--palm{display:block}}/*!!
 section: Utilities
 title: Display - inline-block
-jade: |
-  .u-inlineBlock
-  	span lorem2
+jade: .u-inlineBlock Inline-Block Element
 */.u-inlineBlock{display:inline-block}@media (min-width:481px){.u-inlineBlock--large{display:inline-block}}@media (min-width:1024px){.u-inlineBlock--desk{display:inline-block}}@media (min-width:481px) and (max-width:1023px){.u-inlineBlock--lap{display:inline-block}}@media (max-width:1023px){.u-inlineBlock--portable{display:inline-block}}@media (max-width:480px){.u-inlineBlock--palm{display:inline-block}}/*!!
+section: Utilities
+title: Relative
+description: Set position relative on an element.
+jade: .u-relative Position Relative
+*/.u-relative{position:relative}@media (min-width:481px){.u-relative--large{position:relative}}@media (min-width:1024px){.u-relative--desk{position:relative}}@media (min-width:481px) and (max-width:1023px){.u-relative--lap{position:relative}}@media (max-width:1023px){.u-relative--portable{position:relative}}@media (max-width:480px){.u-relative--palm{position:relative}}/*!!
 section: Utilities
 title: Clearfix
 description: General clearfix helper.
@@ -160,18 +153,18 @@ jade: |
       .guidedog Combo First
     .combo-last
       .guidedog Combo Last
-*/.combo--full>.combo-first{padding-right:0}.combo--full>.combo-last{padding-left:0}body{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}/*!!
+*/.combo--full>.combo-first{padding-right:0}.combo--full>.combo-last{padding-left:0}body{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;font-size:16px}/*!!
 section: Typography
 title: Typeface Strong
 description: Use to change font weight to 'bold'
-jade: strong lorem2
+jade: strong lorem5
 */strong{font-weight:700}/*!!
 section: Typography
 title: Emphasis and italize
 description: Use "em" to emphasize by italizing and use "i" to italize without emphasizing
 jade: |
   p
-    em lorem2
+    em lorem5
   p
-    i lorem2
+    i lorem5
 */em,i{font-style:italic}
