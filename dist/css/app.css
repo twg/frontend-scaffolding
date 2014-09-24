@@ -25,7 +25,15 @@ section: Variables
 title: Sizing
 description: |
   All sizing/spacing throughout the app is based on a [modular scale](http://modularscale.com/) with a base of 16. Use the `size(value)` function to calculate values as needed. For example `size(3)` will return `36px`.
-jade: iframe(src='http://modularscale.com/scale/?px1=16&px2=&ra1=1.5&ra2=0')
+
+  - size(1) | 16px
+  - size(2) | 24px
+  - size(3) | 36px
+  - size(4) | 54px
+  - size(5) | 81px
+  - size(6) | 121.5px
+  - size(7) | 182.25px
+  - size(8) | 237.375px
 *//*!!
 section: Colours
 title: Swatches
@@ -84,16 +92,6 @@ section: Utilities
 title: Section Spacer
 description: Used to add spacing below (between) each individual block
 */.u-blockSpacer{margin-bottom:121.5px}.u-blockChildrenSpacer{margin-bottom:54px}.u-blockChildrenWrap{margin-bottom:-54px}.hero+.u-sectionPadding>.u-blockSpacer--full:first-child,.u-blockSpacer--full+.u-blockSpacer--full{margin-top:-121.5px}/*!!
-section: Utilities
-title: Font style - Italics
-description: Use to change font style to italics
-jade: p.u-italic lorem2
-*/.u-italic{font-style:italic}/*!!
-section: Utilities
-title: Font style - Bold
-description: Use to change font weight to 'bold'
-jade: p.u-bold lorem2
-*/.u-bold{font-weight:500}/*!!
 section: Utilities
 title: Text Align - Left
 description: Use to align text to center
@@ -176,4 +174,18 @@ jade: |
       .guidedog Combo First
     .combo-last
       .guidedog Combo Last
-*/.combo--full>.combo-first{padding-right:0}.combo--full>.combo-last{padding-left:0}
+*/.combo--full>.combo-first{padding-right:0}.combo--full>.combo-last{padding-left:0}body{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}/*!!
+section: Typography
+title: Typeface Strong
+description: Use to change font weight to 'bold'
+jade: strong lorem2
+*/strong{font-weight:700}/*!!
+section: Typography
+title: Emphasis and italize
+description: Use "em" to emphasize by italizing and use "i" to italize without emphasizing
+jade: |
+  p
+    em lorem2
+  p
+    i lorem2
+*/em,i{font-style:italic}
