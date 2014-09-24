@@ -28,20 +28,19 @@ breakpoints := {
   palm: {breakpoint: '(max-width: 480px)', gutter: size(1)}
 }
 
-
-
 /*!!!
 section: Media Query
-description: |
-  To style elements at different screen sizes we use a function [i.e. breakpoint(large)] to call the media query and pass to it a block with the new styling.
+description: To style elements at different screen sizes we use a function [i.e. +media(large)] to call the media query and pass to it a block with the new styling.
 */
-
-//define media queries
-breakpoint(bp)
+media(bp)
   for key, value in breakpoints
     if key == bp
       @media value.breakpoint
         {block}
+
++media(large)
+  .foo
+    background: red
 
 .grid
   font-size: 0

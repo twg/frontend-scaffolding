@@ -17,36 +17,18 @@ jade: |
   - for(var i=1; i<=5; i++)
     div(class="guidedog u-padding"+i) u-padding#{i}
 */
-
 for num in (1..5)
-  .u-spacerWrap{num}
+  +replicate(s('.u-spacerWrap%s', num))
     margin-bottom: size(num) * -1
-  .u-spacer{num}
+
+  +replicate(s('.u-spacer%s', num))
     margin-bottom: size(num)
-  .u-spacerTop{num}
+
+  +replicate(s('.u-spacerTop%s', num))
     margin-top: size(num)
-  .u-padding{num}
+
+  +replicate(s('.u-padding%s', num))
     padding: size(num)
-
-
-/*!!!
-section: Utilities
-title: Section Spacer
-description: Used to add spacing below (between) each individual block
-*/
-.u-blockSpacer
-  margin-bottom: block-spacer
-
-.u-blockChildrenSpacer
-  margin-bottom: block-children-spacer
-
-.u-blockChildrenWrap
-  margin-bottom: block-children-spacer * -1
-
-.u-blockSpacer--full + .u-blockSpacer--full,
-.hero + .u-sectionPadding > .u-blockSpacer--full:first-child
-  margin-top: block-spacer * -1
-
 
  /*!!!
 section: Utilities
@@ -56,7 +38,7 @@ jade: |
   .u-alignLeft
   	p lorem2
 */
-.u-alignLeft
++replicate('.u-alignLeft')
 	text-align: left
 
 /*!!!
@@ -67,7 +49,7 @@ jade: |
   .u-alignCenter
   	p lorem2
 */
-.u-alignCenter
++replicate('.u-alignCenter')
 	text-align: center
 
 /*!!!
@@ -78,9 +60,8 @@ jade: |
   .u-alignRight
   	p lorem2
 */
-.u-alignRight
++replicate('.u-alignRight')
 	text-align: right
-
 
 /*!!!
 section: Utilities
@@ -89,7 +70,7 @@ jade: |
   .u-block
   	span lorem2
 */
-.u-block
++replicate('.u-block')
 	display: block
 
 /*!!!
@@ -99,7 +80,7 @@ jade: |
   .u-inlineBlock
   	span lorem2
 */
-.u-inlineBlock
++replicate('.u-inlineBlock')
 	display: inline-block
 
 /*!!!
