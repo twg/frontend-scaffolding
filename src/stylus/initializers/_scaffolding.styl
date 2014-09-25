@@ -27,6 +27,16 @@ jade: .container lorem5
 section: Scaffolding
 title: .siteFooter & .siteBody
 description: The sticky footer is created using a [display:table trick based on this article](http://galengidman.com/2014/03/25/responsive-flexible-height-sticky-footers-in-css/), `.siteBody` is used to wrap everything inside of the body except for the footer which gets wrapped with `.siteFooter` as a sibling class.
+jade: |
+  body
+    .siteBody
+      header
+        | Hello I'm a header
+      section
+        | Hello I'm the main content
+    .siteFooter
+      footer
+        | Hello I'm a footer
 */
 
 .siteFooter
