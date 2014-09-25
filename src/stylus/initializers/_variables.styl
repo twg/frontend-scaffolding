@@ -1,40 +1,5 @@
 
 /*!!!
-section: Variables
-title: Sizing
-description: |
-  All sizing/spacing throughout the app is based on a [modular scale](http://modularscale.com/) with a base of 16. Use the `size(value)` function to calculate values as needed. For example `size(3)` will return `36px`.
-
-  - size(1) | 16px
-  - size(2) | 24px
-  - size(3) | 36px
-  - size(4) | 54px
-  - size(5) | 81px
-  - size(6) | 121.5px
-  - size(7) | 182.25px
-  - size(8) | 237.375px
-*/
-
-// Generate a sizing value based on a 1.5 (2:3 - perfect fifth) modular scale with a base of 16
-size(value)
-  result = 16px
-  if value > 1
-    for num in (1...value)
-      result = result * 1.5
-  else
-    return result
-
-gutter = size(1)
-gutter-large = size(2)
-
-block-spacer = size(6)
-block-children-spacer = size(4)
-
-mobile-nav-width = 250px
-//nav-height = 83px
-nav-height = 91px
-
-/*!!!
 section: Colours
 title: Swatches
 description: |
@@ -48,4 +13,3 @@ success = #449d44
 warning = #ec971f
 danger = #c9302c
 default = #fff
-

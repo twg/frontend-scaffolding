@@ -1,0 +1,191 @@
+html, body
+  margin: 0
+  padding: 0
+  width: 100%
+  min-height: 100%
+
+// apply border-box to all the things
+*, *:before, *:after
+  box-sizing: border-box
+
+// ensure all html5 elements are set to block (for IE)
+article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section
+  display: block
+
+/*!!!
+section: Scaffolding
+title: .container
+description: The `.container` enforces the max-width of the site on its children.
+jade: .container lorem5
+*/
+.container
+  margin: 0 auto
+  max-width: 1024px
+
+/*!!!
+section: Scaffolding
+title: .grid
+description: |
+  The grid system is inspired by the [CSS Wizardry Grid](https://github.com/csswizardry/csswizardry-grids). The following changes have been made:
+
+  - now adheres to the TWG naming convention
+  - flexible gutter sizes based on the breakpoint
+  - no markup fix or word-spacing fix needed
+  - includes the `large` breakpoint
+  - more granularity (ie. .grid-3of11 is now possible)
+  - variable number of columns (ie. 16 column grids now possible)
+jade: |
+  .grid.grid--middle.grid--rev
+    - for(var i=1; i<=3; i++)
+      .grid-1of4.grid-1of2--portable
+        .guidedog grid #{i}
+    .grid-1of4.grid-1of2--portable
+      .guidedog lorem2
+
+  .u-spacer2
+
+  .grid.u-spacer1
+    .grid-1of3
+      .guidedog Palm
+    .grid-1of3
+      .guidedog Lap
+    .grid-1of3
+      .guidedog Desk
+  .grid.u-spacer1
+    .grid-2of3
+      .guidedog Portable
+  .grid
+    .grid-1of3
+    .grid-2of3
+      .guidedog Large
+*/
+baseFontSize := 16px
+columns := 12
+breakpoints := {
+  large: {breakpoint: '(min-width: 481px)', gutter: size(2)},
+  desk: {breakpoint: '(min-width: 1024px)', gutter: size(3)},
+  lap: {breakpoint: '(min-width: 481px) and (max-width: 1023px)', gutter: size(2)},
+  portable: {breakpoint: '(max-width: 1023px)', gutter: size(2)},
+  palm: {breakpoint: '(max-width: 480px)', gutter: size(1)}
+}
+
+.grid
+  font-size: 0
+  > *
+    font-size: baseFontSize
+    display: inline-block
+    vertical-align: top
+  for key, value in breakpoints
+    @media value.breakpoint
+      margin-left: value.gutter * -1
+      > *
+        padding-left: value.gutter
+
+// define grid items
+for column in (1..columns)
+  for num in (1..column)
+    .grid-{num}of{column}
+      width: (num/column) * 100%
+
+// define breakpoint grid items
+for key, value in breakpoints
+  @media value.breakpoint
+    for column in (1..columns)
+      for num in (1..column)
+        .grid-{num}of{column}--{key}
+          width: (num/column) * 100%
+
+// grid modifiers
++replicate('.grid--middle')
+  > *
+    vertical-align: middle
+
++replicate('.grid--bottom')
+  > *
+    vertical-align: bottom
+
++replicate('.grid--rev')
+  direction rtl
+  text-align left
+  > *
+    direction ltr
+    text-align left
+
+/*!!!
+section: Scaffolding
+title: .combo
+jade: |
+  .combo
+    .combo-first
+      .guidedog Combo First
+    .combo-last
+      .guidedog lorem5
+*/
+.combo
+  display table
+  width 100%
+  > .combo-first
+    width 0
+    white-space nowrap
+    img
+      max-width none
+  > .combo-last
+    width 100%
+
+.combo-first
+  display table-cell
+  padding-right (size(2)/2)
+  vertical-align top
+
+.combo-last
+  display table-cell
+  padding-left (size(2)/2)
+  vertical-align top
+
+.combo--reversed
+  > .combo-first
+    width 100%
+    white-space normal
+  > .combo-last
+    width 0
+    white-space nowrap
+    img
+      max-width none
+
+.combo--middle
+  > *
+    vertical-align middle
+
+.combo--bottom
+  > *
+    vertical-align bottom
+
+.combo--auto
+  width auto
+  > .combo-first
+    width 0
+  > .combo-last
+    width auto
+  &.combo--reversed
+    > .combo-first
+      width auto
+    > .combo-last
+      width 0
+
+.combo--narrow
+  > .combo-first
+    padding-right (size(1)/2)
+  > .combo-last
+    padding-left (size(1)/2)
+
+.combo--wide
+  > .combo-first
+    padding-right (size(3)/2)
+  > .combo-last
+    padding-left (size(3)/2)
+
+.combo--full
+  > .combo-first
+    padding-right 0
+  > .combo-last
+    padding-left 0
