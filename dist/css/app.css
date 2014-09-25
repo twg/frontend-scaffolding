@@ -69,12 +69,16 @@ description: |
 section: Mixins
 title: +media(breakpoint) 
 description: To style elements at different screen sizes we use a function [i.e. +media(large)] to call the media query and pass to it a block with the new styling.
-*/body,html{margin:0;padding:0;width:100%;min-height:100%}*,:after,:before{-moz-box-sizing:border-box;box-sizing:border-box}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}/*!!
+*/body,html{margin:0;padding:0;width:100%;height:100%;display:table}*,:after,:before{-moz-box-sizing:border-box;box-sizing:border-box}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}/*!!
 section: Scaffolding
 title: .container
 description: The `.container` enforces the max-width of the site on its children.
 jade: .container lorem5
 */.container{margin:0 auto;max-width:1024px}/*!!
+section: Scaffolding
+title: .siteFooter & .siteBody
+description: The sticky footer is created using a [display:table trick based on this article](http://galengidman.com/2014/03/25/responsive-flexible-height-sticky-footers-in-css/), `.siteBody` is used to wrap everything inside of the body except for the footer which gets wrapped with `.siteFooter` as a sibling class.
+*/.siteFooter{display:table-row;height:1px}.siteBody{height:100%;display:table-row}/*!!
 section: Scaffolding
 title: .grid
 description: |
