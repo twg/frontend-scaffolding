@@ -42,20 +42,10 @@ jade: |
     .grid-1of4.grid-1of2--portable
       .guidedog lorem2
 */
-baseFontSize := 16px
-columns := 12
-breakpoints := {
-  large: {breakpoint: '(min-width: 481px)', gutter: size(2)},
-  desk: {breakpoint: '(min-width: 1024px)', gutter: size(3)},
-  lap: {breakpoint: '(min-width: 481px) and (max-width: 1023px)', gutter: size(2)},
-  portable: {breakpoint: '(max-width: 1023px)', gutter: size(2)},
-  palm: {breakpoint: '(max-width: 480px)', gutter: size(1)}
-}
-
 .grid
   font-size: 0
   > *
-    font-size: baseFontSize
+    font-size: base-font-size
     display: inline-block
     vertical-align: top
   for key, value in breakpoints
@@ -65,7 +55,7 @@ breakpoints := {
         padding-left: value.gutter
 
 // define grid items
-for column in (1..columns)
+for column in (1..grid-columns)
   for num in (1..column)
     .grid-{num}of{column}
       width: (num/column) * 100%
@@ -73,7 +63,7 @@ for column in (1..columns)
 // define breakpoint grid items
 for key, value in breakpoints
   @media value.breakpoint
-    for column in (1..columns)
+    for column in (1..grid-columns)
       for num in (1..column)
         .grid-{num}of{column}--{key}
           width: (num/column) * 100%
@@ -115,17 +105,25 @@ jade: |
   > .combo-last
     width 100%
 
-.combo-first
+.combo-first, .combo-last
   display table-cell
-  padding-right (size(2)/2)
   vertical-align top
+
+.combo-first
+  padding-right (size(2)/2)
 
 .combo-last
-  display table-cell
   padding-left (size(2)/2)
-  vertical-align top
 
-.combo--reversed
++replicate('.combo--middle')
+  > *
+    vertical-align middle
+
++replicate('.combo--bottom')
+  > *
+    vertical-align bottom
+
++replicate('.combo--rev')
   > .combo-first
     width 100%
     white-space normal
@@ -134,41 +132,3 @@ jade: |
     white-space nowrap
     img
       max-width none
-
-.combo--middle
-  > *
-    vertical-align middle
-
-.combo--bottom
-  > *
-    vertical-align bottom
-
-.combo--auto
-  width auto
-  > .combo-first
-    width 0
-  > .combo-last
-    width auto
-  &.combo--reversed
-    > .combo-first
-      width auto
-    > .combo-last
-      width 0
-
-.combo--narrow
-  > .combo-first
-    padding-right (size(1)/2)
-  > .combo-last
-    padding-left (size(1)/2)
-
-.combo--wide
-  > .combo-first
-    padding-right (size(3)/2) 
-  > .combo-last
-    padding-left (size(3)/2) 
-
-.combo--full
-  > .combo-first
-    padding-right 0
-  > .combo-last
-    padding-left 0

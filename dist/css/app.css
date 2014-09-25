@@ -6,21 +6,48 @@ description: |
   In particular, these are the following key concepts:
 
   - classes should always be used instead of ids
+
   - hyphens are used to indicate relationsihps in class names. Hyphens should never be used to simply seperate words in a multi-worded class name
+
   - multi-word stylus variables should use dashes and not camelCase to more closely mimic CSS syntax (ie. border-bottom-color not borderBottomColor)
+
   - `js-targetName` : The `js-` prefix should be used to indicate javascript hooks. Elements that use the js prefix should never have styling related to the js prefix itself.
+
   - `u-utilityName` : Utility classes should use the `u-` prefix. Utility classes are usually single property helper classes like `text-align: center` or `width: 100%`.
+
   - component names are written in camelCase. ex `.infoTile`
+
   - component children are seperated by a single dash. ex `.infoTile-title`
+
   - component modifiers are seperated by two dashes. ex `.infoTile--large` and should when possible be applied to the component root and not a child element of the component
+
   - component states use the `is-` prefix. ex `.infoTile.is-expanded`. The styles assocaited to `.is-expanded` should always be styled as an ajoining class.
 *//*!!
 section: Folder Structure
 description: |
   - objects : Most of the code should ideally live within this directory. The various components of the site are each broken down into their own self-contained stylesheet with the name of the component (ex `_buttons.styl`). These files should use plural names when possible instead of singular (`_buttons.styl` not `_button.styl`). Multi-worded objects should use camelCase (ex. `_infoTiles.styl` not `_info-tiles.styl`). One object file should not depend on another object file, meaning the order that objects are loaded should be irrelevant.
+
   - initializers : Code that needs to be loaded before the objects should go here. This would include things that objects would need to reference like colour variables, mixins, etc.
+
   - pages : Page specific overrides go here. Ideally, these should be used as little as possible, as writing extensive page specific overrides leads to code that is not re-usable.
 *//*!!
+section: Variables
+title: Breakpoints
+description: |
+  The following breakpoints are avaialbe
+
+  - large | (min-width: 481px)
+  - desk | (min-width: 1024px)
+  - lap | (min-width: 481px) and (max-width: 1023px)
+  - portable | (max-width: 1023px)
+  - palm | (max-width: 480px)
+*//*!!
+section: Variables
+title: Colours
+description: |
+  Color variables are defined here
+swatches: [{name: dark-grey, value: "#cbcbcf"}, {name: medium-grey, value: "#e0e0e2"}, {name: light-grey, value: "#f7f7f8"}, {name: success, value: "#449d44"}, {name: warning, value: "#ec971f"}, {name: danger, value: "#c9302c"}]
+ *//*!!
 section: Mixins
 title: +replicate(selector)
 description: The replicate function allows you to loop through a selector and create all the breakpoint specific modifiers for that selector automatically.
@@ -42,13 +69,7 @@ description: |
 section: Mixins
 title: +media(breakpoint) 
 description: To style elements at different screen sizes we use a function [i.e. +media(large)] to call the media query and pass to it a block with the new styling.
-*//*!!
-section: Colours
-title: Swatches
-description: |
-  Color variables are defined here
-swatches: [{name: darkGrey, value: "#cbcbcf"}, {name: mediumGrey, value: "#e0e0e2"}, {name: lightGrey, value: "#f7f7f8"}, {name: success, value: "#449d44"}, {name: warning, value: "#ec971f"}, {name: danger, value: "#c9302c"}, {name: default, value: "#fff"}]
- */body,html{margin:0;padding:0;width:100%;min-height:100%}*,:after,:before{-moz-box-sizing:border-box;box-sizing:border-box}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}/*!!
+*/body,html{margin:0;padding:0;width:100%;min-height:100%}*,:after,:before{-moz-box-sizing:border-box;box-sizing:border-box}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}/*!!
 section: Scaffolding
 title: .container
 description: The `.container` enforces the max-width of the site on its children.
@@ -81,7 +102,7 @@ jade: |
       .guidedog Combo First 
     .combo-last
       .guidedog lorem5 
-*/.combo{display:table;width:100%}.combo>.combo-first{width:0;white-space:nowrap}.combo>.combo-first img{max-width:none}.combo>.combo-last{width:100%}.combo-first{display:table-cell;padding-right:12px;vertical-align:top}.combo-last{display:table-cell;padding-left:12px;vertical-align:top}.combo--reversed>.combo-first{width:100%;white-space:normal}.combo--reversed>.combo-last{width:0;white-space:nowrap}.combo--reversed>.combo-last img{max-width:none}.combo--middle>*{vertical-align:middle}.combo--bottom>*{vertical-align:bottom}.combo--auto{width:auto}.combo--auto>.combo-first{width:0}.combo--auto.combo--reversed>.combo-first,.combo--auto>.combo-last{width:auto}.combo--auto.combo--reversed>.combo-last{width:0}.combo--narrow>.combo-first{padding-right:8px}.combo--narrow>.combo-last{padding-left:8px}.combo--wide>.combo-first{padding-right:18px}.combo--wide>.combo-last{padding-left:18px}.combo--full>.combo-first{padding-right:0}.combo--full>.combo-last{padding-left:0}/*!!
+*/.combo{display:table;width:100%}.combo>.combo-first{width:0;white-space:nowrap}.combo>.combo-first img{max-width:none}.combo>.combo-last{width:100%}.combo-first,.combo-last{display:table-cell;vertical-align:top}.combo-first{padding-right:12px}.combo-last{padding-left:12px}.combo--middle>*{vertical-align:middle}@media (min-width:481px){.combo--middle--large>*{vertical-align:middle}}@media (min-width:1024px){.combo--middle--desk>*{vertical-align:middle}}@media (min-width:481px) and (max-width:1023px){.combo--middle--lap>*{vertical-align:middle}}@media (max-width:1023px){.combo--middle--portable>*{vertical-align:middle}}@media (max-width:480px){.combo--middle--palm>*{vertical-align:middle}}.combo--bottom>*{vertical-align:bottom}@media (min-width:481px){.combo--bottom--large>*{vertical-align:bottom}}@media (min-width:1024px){.combo--bottom--desk>*{vertical-align:bottom}}@media (min-width:481px) and (max-width:1023px){.combo--bottom--lap>*{vertical-align:bottom}}@media (max-width:1023px){.combo--bottom--portable>*{vertical-align:bottom}}@media (max-width:480px){.combo--bottom--palm>*{vertical-align:bottom}}.combo--rev>.combo-first{width:100%;white-space:normal}.combo--rev>.combo-last{width:0;white-space:nowrap}.combo--rev>.combo-last img{max-width:none}@media (min-width:481px){.combo--rev--large>.combo-first{width:100%;white-space:normal}.combo--rev--large>.combo-last{width:0;white-space:nowrap}.combo--rev--large>.combo-last img{max-width:none}}@media (min-width:1024px){.combo--rev--desk>.combo-first{width:100%;white-space:normal}.combo--rev--desk>.combo-last{width:0;white-space:nowrap}.combo--rev--desk>.combo-last img{max-width:none}}@media (min-width:481px) and (max-width:1023px){.combo--rev--lap>.combo-first{width:100%;white-space:normal}.combo--rev--lap>.combo-last{width:0;white-space:nowrap}.combo--rev--lap>.combo-last img{max-width:none}}@media (max-width:1023px){.combo--rev--portable>.combo-first{width:100%;white-space:normal}.combo--rev--portable>.combo-last{width:0;white-space:nowrap}.combo--rev--portable>.combo-last img{max-width:none}}@media (max-width:480px){.combo--rev--palm>.combo-first{width:100%;white-space:normal}.combo--rev--palm>.combo-last{width:0;white-space:nowrap}.combo--rev--palm>.combo-last img{max-width:none}}/*!!
 section: Utilities
 title: .u-spacerX
 description: When possible all spacing [should go only down](http://csswizardry.com/2012/06/single-direction-margin-declarations/) and not up.
