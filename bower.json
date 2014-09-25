@@ -13,7 +13,11 @@
   ],
   "dependencies": {
     "jquery-1.9.1": "http://code.jquery.com/jquery-1.9.1.js",
-    "guidedog": "~0.1.7"
+    "guidedog": "~0.1.7",
+    "background-size-polyfill": "~0.2.0",
+    "html5shiv": "~3.7.2",
+    "respond": "~1.4.2",
+    "selectivizr": "~1.0.2"
   },
   "devDependencies": {
     "guidedog": "~0.1.10"

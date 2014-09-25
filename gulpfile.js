@@ -18,6 +18,21 @@ var vendorJS = [
 var vendorCSS = [
 ]
 
+var polyfillIe =[
+    'bower_components/respond/dest/respond.min.js',
+    'bower_components/html5shiv/dist/html5shiv.min.js',
+    'bower_components/selectivizr/selectivizr.js',
+    'bower_components/background-size-polyfill/backgroundsize.min.htc'
+]
+
+
+//-- Pollyfills for IE -----------------------------------------------------
+gulp.task('polyfillIe', function() {
+  gulp.src(polyfillIe)
+    .pipe(gulp.dest('./dist/js/'));
+});
+
+
 //-- HTML -----------------------------------------------------
 gulp.task('html', function() {
   gulp.src('./src/jade/*.jade')
@@ -113,4 +128,4 @@ gulp.task('watch', function(){
 })
 
 //-- Default -----------------------------------------------------
-gulp.task('default', ['html', 'css', 'javascript', 'guidedog', 'server', 'watch'])
+gulp.task('default', ['html', 'css', 'javascript', 'guidedog', 'server', 'polyfillIe', 'watch'])
