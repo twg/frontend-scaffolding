@@ -12,24 +12,33 @@ var gulp = require('gulp'),
     notify = require('gulp-notify')
 
 var vendorJS = [
-  './bower_components/jquery-1.9.1/index.js'
+  './bower_components/jquery/jquery.js'
 ]
 
 var vendorCSS = [
 ]
 
-var polyfillIe =[
+var polyfillIe ={
+    'js': [
     'bower_components/respond/dest/respond.min.js',
     'bower_components/html5shiv/dist/html5shiv.min.js',
     'bower_components/selectivizr/selectivizr.js',
-    'bower_components/background-size-polyfill/backgroundsize.min.htc'
-]
+    'bower_components/background-size-polyfill/backgroundsize.min.htc',
+    'bower_components/html5-placeholder-polyfill/dist/placeholder_polyfill.jquery.min.combo.js',
+    'bower_components/box-sizing-polyfill/boxsizing.htc'
+    ],
+    'css': [
+    'bower_components/html5-placeholder-polyfill/dist/placeholder_polyfill.min.css'
+    ]
+}
 
 
 //-- Pollyfills for IE -----------------------------------------------------
 gulp.task('polyfillIe', function() {
-  gulp.src(polyfillIe)
+  gulp.src(polyfillIe.js)
     .pipe(gulp.dest('./dist/js/'));
+  gulp.src(polyfillIe.css)
+    .pipe(gulp.dest('./dist/css/'));
 });
 
 
