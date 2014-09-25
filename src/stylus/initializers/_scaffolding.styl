@@ -35,25 +35,25 @@ description: |
   - more granularity (ie. .grid-3of11 is now possible)
   - variable number of columns (ie. 16 column grids now possible)
 jade: |
-  .grid.grid--middle.grid--rev
+  .grid.grid--middle.grid--rev.u-spacer2
     - for(var i=1; i<=3; i++)
       .grid-1of4.grid-1of2--portable
         .guidedog grid #{i}
     .grid-1of4.grid-1of2--portable
       .guidedog lorem2
 
-  .u-spacer2
-
-  .grid.u-spacer1
+  .grid.u-spacer2
     .grid-1of3
       .guidedog Palm
     .grid-1of3
       .guidedog Lap
     .grid-1of3
       .guidedog Desk
-  .grid.u-spacer1
+
+  .grid.u-spacer2
     .grid-2of3
       .guidedog Portable
+
   .grid
     .grid-1of3
     .grid-2of3
@@ -112,40 +112,41 @@ jade: |
       .guidedog lorem5
 */
 .combo
-  display table
-  width 100%
+  display: table
+  width: 100%
   > .combo-first
-    width 0
-    white-space nowrap
+    width: 0
+    white-space: nowrap
     img
-      max-width none
+      max-width: none
   > .combo-last
-    width 100%
+    width: 100%
 
 .combo-first, .combo-last
-  display table-cell
-  vertical-align top
+  display: table-cell
+  vertical-align: top
 
-.combo-first
-  padding-right (size(2)/2)
-
-.combo-last
-  padding-left (size(2)/2)
+for key, value in breakpoints
+  @media value.breakpoint
+    .combo-first
+      padding-right: (value.gutter / 2)
+    .combo-last
+      padding-left: (value.gutter / 2)
 
 +replicate('.combo--middle')
   > *
-    vertical-align middle
+    vertical-align: middle
 
 +replicate('.combo--bottom')
   > *
-    vertical-align bottom
+    vertical-align: bottom
 
 +replicate('.combo--rev')
   > .combo-first
-    width 100%
-    white-space normal
+    width: 100%
+    white-space: normal
   > .combo-last
-    width 0
-    white-space nowrap
+    width: 0
+    white-space: nowrap
     img
-      max-width none
+      max-width: none

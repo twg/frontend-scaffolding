@@ -87,25 +87,25 @@ description: |
   - more granularity (ie. .grid-3of11 is now possible)
   - variable number of columns (ie. 16 column grids now possible)
 jade: |
-  .grid.grid--middle.grid--rev
+  .grid.grid--middle.grid--rev.u-spacer2
     - for(var i=1; i<=3; i++)
       .grid-1of4.grid-1of2--portable
         .guidedog grid #{i}
     .grid-1of4.grid-1of2--portable
       .guidedog lorem2
 
-  .u-spacer2
-
-  .grid.u-spacer1
+  .grid.u-spacer2
     .grid-1of3
       .guidedog Palm
     .grid-1of3
       .guidedog Lap
     .grid-1of3
       .guidedog Desk
-  .grid.u-spacer1
+
+  .grid.u-spacer2
     .grid-2of3
       .guidedog Portable
+
   .grid
     .grid-1of3
     .grid-2of3
@@ -119,7 +119,7 @@ jade: |
       .guidedog Combo First
     .combo-last
       .guidedog lorem5
-*/.combo{display:table;width:100%}.combo>.combo-first{width:0;white-space:nowrap}.combo>.combo-first img{max-width:none}.combo>.combo-last{width:100%}.combo-first,.combo-last{display:table-cell;vertical-align:top}.combo-first{padding-right:12px}.combo-last{padding-left:12px}.combo--middle>*{vertical-align:middle}@media (min-width:481px){.combo--middle--large>*{vertical-align:middle}}@media (min-width:1024px){.combo--middle--desk>*{vertical-align:middle}}@media (min-width:481px) and (max-width:1023px){.combo--middle--lap>*{vertical-align:middle}}@media (max-width:1023px){.combo--middle--portable>*{vertical-align:middle}}@media (max-width:480px){.combo--middle--palm>*{vertical-align:middle}}.combo--bottom>*{vertical-align:bottom}@media (min-width:481px){.combo--bottom--large>*{vertical-align:bottom}}@media (min-width:1024px){.combo--bottom--desk>*{vertical-align:bottom}}@media (min-width:481px) and (max-width:1023px){.combo--bottom--lap>*{vertical-align:bottom}}@media (max-width:1023px){.combo--bottom--portable>*{vertical-align:bottom}}@media (max-width:480px){.combo--bottom--palm>*{vertical-align:bottom}}.combo--rev>.combo-first{width:100%;white-space:normal}.combo--rev>.combo-last{width:0;white-space:nowrap}.combo--rev>.combo-last img{max-width:none}@media (min-width:481px){.combo--rev--large>.combo-first{width:100%;white-space:normal}.combo--rev--large>.combo-last{width:0;white-space:nowrap}.combo--rev--large>.combo-last img{max-width:none}}@media (min-width:1024px){.combo--rev--desk>.combo-first{width:100%;white-space:normal}.combo--rev--desk>.combo-last{width:0;white-space:nowrap}.combo--rev--desk>.combo-last img{max-width:none}}@media (min-width:481px) and (max-width:1023px){.combo--rev--lap>.combo-first{width:100%;white-space:normal}.combo--rev--lap>.combo-last{width:0;white-space:nowrap}.combo--rev--lap>.combo-last img{max-width:none}}@media (max-width:1023px){.combo--rev--portable>.combo-first{width:100%;white-space:normal}.combo--rev--portable>.combo-last{width:0;white-space:nowrap}.combo--rev--portable>.combo-last img{max-width:none}}@media (max-width:480px){.combo--rev--palm>.combo-first{width:100%;white-space:normal}.combo--rev--palm>.combo-last{width:0;white-space:nowrap}.combo--rev--palm>.combo-last img{max-width:none}}/*!!
+*/.combo{display:table;width:100%}.combo>.combo-first{width:0;white-space:nowrap}.combo>.combo-first img{max-width:none}.combo>.combo-last{width:100%}.combo-first,.combo-last{display:table-cell;vertical-align:top}@media (min-width:481px){.combo-first{padding-right:12px}.combo-last{padding-left:12px}}@media (min-width:1024px){.combo-first{padding-right:18px}.combo-last{padding-left:18px}}@media (min-width:481px) and (max-width:1023px){.combo-first{padding-right:12px}.combo-last{padding-left:12px}}@media (max-width:1023px){.combo-first{padding-right:12px}.combo-last{padding-left:12px}}@media (max-width:480px){.combo-first{padding-right:8px}.combo-last{padding-left:8px}}.combo--middle>*{vertical-align:middle}@media (min-width:481px){.combo--middle--large>*{vertical-align:middle}}@media (min-width:1024px){.combo--middle--desk>*{vertical-align:middle}}@media (min-width:481px) and (max-width:1023px){.combo--middle--lap>*{vertical-align:middle}}@media (max-width:1023px){.combo--middle--portable>*{vertical-align:middle}}@media (max-width:480px){.combo--middle--palm>*{vertical-align:middle}}.combo--bottom>*{vertical-align:bottom}@media (min-width:481px){.combo--bottom--large>*{vertical-align:bottom}}@media (min-width:1024px){.combo--bottom--desk>*{vertical-align:bottom}}@media (min-width:481px) and (max-width:1023px){.combo--bottom--lap>*{vertical-align:bottom}}@media (max-width:1023px){.combo--bottom--portable>*{vertical-align:bottom}}@media (max-width:480px){.combo--bottom--palm>*{vertical-align:bottom}}.combo--rev>.combo-first{width:100%;white-space:normal}.combo--rev>.combo-last{width:0;white-space:nowrap}.combo--rev>.combo-last img{max-width:none}@media (min-width:481px){.combo--rev--large>.combo-first{width:100%;white-space:normal}.combo--rev--large>.combo-last{width:0;white-space:nowrap}.combo--rev--large>.combo-last img{max-width:none}}@media (min-width:1024px){.combo--rev--desk>.combo-first{width:100%;white-space:normal}.combo--rev--desk>.combo-last{width:0;white-space:nowrap}.combo--rev--desk>.combo-last img{max-width:none}}@media (min-width:481px) and (max-width:1023px){.combo--rev--lap>.combo-first{width:100%;white-space:normal}.combo--rev--lap>.combo-last{width:0;white-space:nowrap}.combo--rev--lap>.combo-last img{max-width:none}}@media (max-width:1023px){.combo--rev--portable>.combo-first{width:100%;white-space:normal}.combo--rev--portable>.combo-last{width:0;white-space:nowrap}.combo--rev--portable>.combo-last img{max-width:none}}@media (max-width:480px){.combo--rev--palm>.combo-first{width:100%;white-space:normal}.combo--rev--palm>.combo-last{width:0;white-space:nowrap}.combo--rev--palm>.combo-last img{max-width:none}}/*!!
 section: Utilities
 title: .u-spacerX
 description: When possible all spacing [should go only down](http://csswizardry.com/2012/06/single-direction-margin-declarations/) and not up.
