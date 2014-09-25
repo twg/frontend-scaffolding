@@ -7,7 +7,7 @@ description: |
 
   - classes should always be used instead of ids
 
-  - hyphens are used to indicate relationsihps in class names. Hyphens should never be used to simply seperate words in a multi-worded class name
+  - hyphens are used to indicate relationships in class names. Hyphens should never be used to simply seperate words in a multi-worded class name
 
   - multi-word stylus variables should use dashes and not camelCase to more closely mimic CSS syntax (ie. border-bottom-color not borderBottomColor)
 
@@ -176,6 +176,11 @@ title: .u-relative
 description: Set position relative on an element.
 jade: .u-relative Position Relative
 */.u-relative{position:relative}@media (min-width:481px){.u-relative--large{position:relative}}@media (min-width:1024px){.u-relative--desk{position:relative}}@media (min-width:481px) and (max-width:1023px){.u-relative--lap{position:relative}}@media (max-width:1023px){.u-relative--portable{position:relative}}@media (max-width:480px){.u-relative--palm{position:relative}}/*!!
+section: Utilities
+title: .u-wide
+description: Sets an element's width to 100%
+jade: .u-wide Wide
+*/.u-wide{width:100%}@media (min-width:481px){.u-wide--large{width:100%}}@media (min-width:1024px){.u-wide--desk{width:100%}}@media (min-width:481px) and (max-width:1023px){.u-wide--lap{width:100%}}@media (max-width:1023px){.u-wide--portable{width:100%}}@media (max-width:480px){.u-wide--palm{width:100%}}/*!!
 section: Utilities
 title: .u-clearfix
 description: General clearfix helper.
