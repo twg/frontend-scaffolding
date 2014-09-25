@@ -9,7 +9,7 @@ html, body
   box-sizing: border-box
 
 // ensure all html5 elements are set to block (for IE)
-article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section 
+article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section
   display: block
 
 /*!!!
@@ -41,6 +41,23 @@ jade: |
         .guidedog grid #{i}
     .grid-1of4.grid-1of2--portable
       .guidedog lorem2
+
+  .u-spacer2
+
+  .grid.u-spacer1
+    .grid-1of3
+      .guidedog Palm
+    .grid-1of3
+      .guidedog Lap
+    .grid-1of3
+      .guidedog Desk
+  .grid.u-spacer1
+    .grid-2of3
+      .guidedog Portable
+  .grid
+    .grid-1of3
+    .grid-2of3
+      .guidedog Large
 */
 .grid
   font-size: 0
@@ -89,10 +106,10 @@ section: Scaffolding
 title: .combo
 jade: |
   .combo
-    .combo-first 
-      .guidedog Combo First 
+    .combo-first
+      .guidedog Combo First
     .combo-last
-      .guidedog lorem5 
+      .guidedog lorem5
 */
 .combo
   display table
