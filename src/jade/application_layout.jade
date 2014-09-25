@@ -11,14 +11,15 @@ html(lang="en")
     link(rel="stylesheet" type="text/css" href="/css/app.css")
 
   body
-    header.page-row
-      | Hello I'm a header
+    .siteBody
+      header
+        | Hello I'm a header
 
-    .page-row-expanded
       block content
 
-    footer.page-row
-      | Hello I'm a footer
+    .siteFooter
+      footer
+        | Hello I'm a footer
 
     script(src="/js/vendor.min.js", type="text/javascript")
     script(src="/js/app.min.js", type="text/javascript")
