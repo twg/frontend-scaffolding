@@ -1,15 +1,36 @@
+base-font-size = 16px
+grid-columns = 12
 
 /*!!!
-section: Colours
-title: Swatches
+section: Variables
+title: Breakpoints
+description: |
+  The following breakpoints are avaialbe
+
+  - large    | (min-width: 481px)
+  - desk     | (min-width: 1024px)
+  - lap      | (min-width: 481px) and (max-width: 1023px)
+  - portable | (max-width: 1023px)
+  - palm     | (max-width: 480px)
+*/
+breakpoints = {
+  large: {breakpoint: '(min-width: 481px)', gutter: size(2)},
+  desk: {breakpoint: '(min-width: 1024px)', gutter: size(3)},
+  lap: {breakpoint: '(min-width: 481px) and (max-width: 1023px)', gutter: size(2)},
+  portable: {breakpoint: '(max-width: 1023px)', gutter: size(2)},
+  palm: {breakpoint: '(max-width: 480px)', gutter: size(1)}
+}
+
+/*!!!
+section: Variables
+title: Colours
 description: |
   Color variables are defined here
-swatches: [{name: darkGrey, value: "#cbcbcf"}, {name: mediumGrey, value: "#e0e0e2"}, {name: lightGrey, value: "#f7f7f8"}, {name: success, value: "#449d44"}, {name: warning, value: "#ec971f"}, {name: danger, value: "#c9302c"}, {name: default, value: "#fff"}]
+swatches: [{name: dark-grey, value: "#cbcbcf"}, {name: medium-grey, value: "#e0e0e2"}, {name: light-grey, value: "#f7f7f8"}, {name: success, value: "#449d44"}, {name: warning, value: "#ec971f"}, {name: danger, value: "#c9302c"}]
  */
-darkGrey = #cbcbcf
-mediumGrey = #e0e0e2
-lightGrey = #f7f7f8
+dark-grey = #cbcbcf
+medium-grey = #e0e0e2
+light-grey = #f7f7f8
 success = #449d44
 warning = #ec971f
 danger = #c9302c
-default = #fff
