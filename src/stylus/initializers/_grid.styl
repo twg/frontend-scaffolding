@@ -16,6 +16,23 @@ jade: |
         .guidedog grid #{i}
     .grid-1of4.grid-1of2--portable
       .guidedog lorem2
+
+  .u-spacer2
+
+  .grid.u-spacer1
+    .grid-1of3
+      .guidedog Palm
+    .grid-1of3
+      .guidedog Lap
+    .grid-1of3
+      .guidedog Desk
+  .grid.u-spacer1
+    .grid-2of3
+      .guidedog Portable
+  .grid
+    .grid-1of3
+    .grid-2of3
+      .guidedog Large
 */
 
 baseFontSize := 16px
@@ -38,8 +55,18 @@ media(bp)
       @media value.breakpoint
         {block}
 
-.container
-  max-width: 1024px
+
+/*!!!
+section: Container
+description: The container class provides a maximum width of 1024px.
+*/
+// .container
+//   max-width: 1024px
+//   margin: 0 auto
+//   +media(lap)
+//     padding: 0 size(2)
+//   +media(palm)
+//     padding: 0 size(1)
 
 .grid
   font-size: 0
