@@ -9,3 +9,12 @@ README
 1. visit `http://localhost:8080` in your browser
 1. or visit `http://fed.dev` in your browser
 1. Enjoy!
+
+
+# Preferred Tools
+1. Js Image Carousel:
+  `bxSlider` http://bxslider.com/
+1. Js Paralex effect
+  `skrollr` http://prinzhorn.github.io/skrollr/
+1. Js Accordion:
+  `jquerry.accordion` http://jqueryui.com/accordion/
