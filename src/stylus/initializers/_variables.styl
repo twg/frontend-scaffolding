@@ -16,6 +16,23 @@ description: |
   - **Portable**: `(max-width: 1023px)`
 
   - **Palm**: `(max-width: 480px)`
+jade: |
+  .grid.u-spacer2
+    .grid-1of3
+      .guidedog Palm
+    .grid-1of3
+      .guidedog Lap
+    .grid-1of3
+      .guidedog Desk
+
+  .grid.u-spacer2
+    .grid-2of3
+      .guidedog Portable
+
+  .grid
+    .grid-1of3
+    .grid-2of3
+      .guidedog Large
 */
 breakpoints = {
   large: {breakpoint: '(min-width: 481px)', gutter: size(2)},
