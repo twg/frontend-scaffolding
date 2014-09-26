@@ -5,31 +5,29 @@ description: |
 
   In particular, these are the following key concepts:
 
-  - classes should always be used instead of ids
+  - classes, not ids
 
-  - hyphens are used to indicate relationships in class names. Hyphens should never be used to simply seperate words in a multi-worded class name
+  - camelCase, not dashes for class names (e.g. `.infoTile`)
 
-  - multi-word stylus variables should use dashes and not camelCase to more closely mimic CSS syntax (ie. border-bottom-color not borderBottomColor)
+  - dashes, not camelCase for stylesheet variables (e.g. `primary-text-color`)
 
-  - `js-targetName` : The `js-` prefix should be used to indicate javascript hooks. Elements that use the js prefix should never have styling related to the js prefix itself.
+  - single dashes for children elements (e.g. `.infoTile-title`)
 
-  - `u-utilityName` : Utility classes should use the `u-` prefix. Utility classes are usually single property helper classes like `text-align: center` or `width: 100%`.
+  - double dashes for modifiers (e.g. `infoTile--large`)
 
-  - component names are written in camelCase. ex `.infoTile`
+  - `.is-` prefix for states (e.g. `.is-active`)
 
-  - component children are seperated by a single dash. ex `.infoTile-title`
+  - `.u-` prefix for general utility classes (e.g. `.u-alignRight`) 
 
-  - component modifiers are seperated by two dashes. ex `.infoTile--large` and should when possible be applied to the component root and not a child element of the component
-
-  - component states use the `is-` prefix. ex `.infoTile.is-expanded`. The styles assocaited to `.is-expanded` should always be styled as an ajoining class.
+  - `.js-` prefix for javascript targets (e.g. `.js-gallery`)
 */
 
 /*!!!
 section: Folder Structure
 description: |
-  - objects : Most of the code should ideally live within this directory. The various components of the site are each broken down into their own self-contained stylesheet with the name of the component (ex `_buttons.styl`). These files should use plural names when possible instead of singular (`_buttons.styl` not `_button.styl`). Multi-worded objects should use camelCase (ex. `_infoTiles.styl` not `_info-tiles.styl`). One object file should not depend on another object file, meaning the order that objects are loaded should be irrelevant.
+  **Objects**: Objects are the basic building blocks of any site. Pages are assembled by laying out various objects in various arrangements (using the site's scaffolding). Object file naming should be the pluralized version of the object they contain (e.g. `_infoTiles.styl` not `_info-tile.styl`). Each object should be self-contained and independant, thus the order objects are loaded should be irrelevant.
 
-  - initializers : Code that needs to be loaded before the objects should go here. This would include things that objects would need to reference like colour variables, mixins, etc.
+  **Initializers**: Code that needs to be loaded before the objects should go here. This would include things that objects would need to reference like colour variables, mixins, etc.
 
-  - pages : Page specific overrides go here. Ideally, these should be used as little as possible, as writing extensive page specific overrides leads to code that is not re-usable.
+  **Pages**: Page specific overrides go here. Ideally, these should be used as little as possible, as writing extensive page specific overrides leads to code that is not re-usable.
 */
