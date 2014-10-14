@@ -63,8 +63,7 @@ gulp.task('images', function(){
   gulp.src('./src/images/*')
     .pipe(rev())
     .pipe(gulp.dest('./dist/images'))
-    .pipe(addsrc('./dist/rev-manifest.json'))
-    .pipe(rev.manifest())
+    .pipe(rev.manifest({path: 'img-manifest.json'}))
     .pipe(gulp.dest('./dist'))
     .pipe(notify('Compiled Images'))
 })
@@ -82,18 +81,17 @@ gulp.task('css', function() {
     .pipe(minify())
     .pipe(rev())
     .pipe(gulp.dest('./dist/css'))
-    .pipe(addsrc('./dist/rev-manifest.json'))
-    .pipe(rev.manifest())
+    .pipe(rev.manifest({path: 'css-manifest.json'}))
     .pipe(gulp.dest('./dist'))
     .pipe(notify('Compiled CSS'))
 
   // vendor CSS
-  if(vendorCSS.length > 0){
-    gulp.src(vendorCSS)
-      .pipe(minify())
-      .pipe(concat('vendor.css'))
-      .pipe(gulp.dest('./dist/css'))
-  }
+  // if(vendorCSS.length > 0){
+//     gulp.src(vendorCSS)
+//       .pipe(minify())
+//       .pipe(concat('vendor.css'))
+//       .pipe(gulp.dest('./dist/css'))
+//   }
 })
 
 //-- JS ---------------------------------------------------------------------
