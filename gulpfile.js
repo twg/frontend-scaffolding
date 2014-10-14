@@ -1,39 +1,42 @@
-//-- Includes -----------------------------------------------------
+//-- Includes ---------------------------------------------------------------
 var gulp = require('gulp'),
-    autoprefixer = require('gulp-autoprefixer'),
-    rename = require('gulp-rename'),
-    stylus = require('gulp-stylus'),
-    minify = require('gulp-minify-css'),
-    uglify = require('gulp-uglify'),
-    order = require('gulp-order'),
-    jade = require('gulp-jade'),
-    concat = require('gulp-concat'),
-    nodemon = require('gulp-nodemon'),
-    notify = require('gulp-notify')
+  autoprefixer  = require('gulp-autoprefixer'),
+  rename        = require('gulp-rename'),
+  rev           = require('gulp-rev'),
+  stylus        = require('gulp-stylus'),
+  minify        = require('gulp-minify-css'),
+  uglify        = require('gulp-uglify'),
+  order         = require('gulp-order'),
+  jade          = require('gulp-jade'),
+  concat        = require('gulp-concat'),
+  nodemon       = require('gulp-nodemon'),
+  notify        = require('gulp-notify'),
+  addsrc        = require('gulp-add-src') // issue with gulp 3.8.8. maybe newer version won't need this
 
 var vendorJS = [
   './bower_components/jquery/jquery.js'
 ]
 
 var vendorCSS = [
+
 ]
 
 var polyfillIe ={
-    'js': [
+  'js': [
     'bower_components/respond/dest/respond.min.js',
     'bower_components/html5shiv/dist/html5shiv.min.js',
     'bower_components/selectivizr/selectivizr.js',
     'bower_components/background-size-polyfill/backgroundsize.min.htc',
     'bower_components/html5-placeholder-polyfill/dist/placeholder_polyfill.jquery.min.combo.js',
     'bower_components/box-sizing-polyfill/boxsizing.htc'
-    ],
-    'css': [
+  ],
+  'css': [
     'bower_components/html5-placeholder-polyfill/dist/placeholder_polyfill.min.css'
-    ]
+  ]
 }
 
 
-//-- Pollyfills for IE -----------------------------------------------------
+//-- Pollyfills for IE ------------------------------------------------------
 gulp.task('polyfillIe', function() {
   gulp.src(polyfillIe.js)
     .pipe(gulp.dest('./dist/js/'));
@@ -42,7 +45,7 @@ gulp.task('polyfillIe', function() {
 });
 
 
-//-- HTML -----------------------------------------------------
+//-- HTML -------------------------------------------------------------------
 gulp.task('html', function() {
   gulp.src('./src/jade/*.jade')
     .pipe(jade({
@@ -55,7 +58,19 @@ gulp.task('html', function() {
     .pipe(notify('Compiled HTML'))
 })
 
-//-- CSS -----------------------------------------------------
+//-- Images -----------------------------------------------------------------
+gulp.task('images', function(){
+  gulp.src('./src/images/*')
+    .pipe(rev())
+    .pipe(gulp.dest('./dist/images'))
+    .pipe(addsrc('./dist/rev-manifest.json'))
+    .pipe(rev.manifest())
+    .pipe(gulp.dest('./dist'))
+    .pipe(notify('Compiled Images'))
+})
+
+
+//-- CSS --------------------------------------------------------------------
 gulp.task('css', function() {
   // custom CSS
   gulp.src('./src/stylus/app.styl')
@@ -65,7 +80,11 @@ gulp.task('css', function() {
     }))
     .pipe(autoprefixer('last 2 version', 'safari 5', 'ie 8', 'ie 9', 'opera 12.1', 'ios 6', 'android 4'))
     .pipe(minify())
+    .pipe(rev())
     .pipe(gulp.dest('./dist/css'))
+    .pipe(addsrc('./dist/rev-manifest.json'))
+    .pipe(rev.manifest())
+    .pipe(gulp.dest('./dist'))
     .pipe(notify('Compiled CSS'))
 
   // vendor CSS
@@ -77,7 +96,7 @@ gulp.task('css', function() {
   }
 })
 
-//-- JS -----------------------------------------------------
+//-- JS ---------------------------------------------------------------------
 gulp.task('javascript', function() {
   // custom JS
   gulp.src('./src/js/**/*.js')
@@ -103,7 +122,7 @@ gulp.task('javascript', function() {
   }
 })
 
-//-- Guidedog -----------------------------------------------------
+//-- Guidedog ---------------------------------------------------------------
 gulp.task('guidedog', function() {
   // Guidedog js
   gulp.src('bower_components/guidedog/dist/guidedog.min.js')
@@ -116,7 +135,7 @@ gulp.task('guidedog', function() {
   .pipe(notify('Compiled Guidedog'))
 })
 
-//-- Server -----------------------------------------------------
+//-- Server -----------------------------------------------------------------
 gulp.task('server', function() {
   nodemon({
     verbose: false,
