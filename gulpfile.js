@@ -8,6 +8,7 @@ var gulp = require('gulp'),
     uglify = require('gulp-uglify'),
     order = require('gulp-order'),
     jade = require('gulp-jade'),
+    haml = require('gulp-haml'),
     concat = require('gulp-concat'),
     nodemon = require('gulp-nodemon'),
     notify = require('gulp-notify')
@@ -45,6 +46,8 @@ gulp.task('polyfillIe', function() {
 
 //-- HTML -----------------------------------------------------
 gulp.task('html', function() {
+
+  //with JADE -----------------------------------------------------
   gulp.src('./src/jade/*.jade')
     .pipe(jade({
       pretty: true
@@ -54,6 +57,20 @@ gulp.task('html', function() {
     }))
     .pipe(gulp.dest('./dist/'))
     .pipe(notify('Compiled HTML'))
+  //  -----------------------------------------------------
+
+  //with HAML -----------------------------------------------------
+  // gulp.src('./src/haml/*.haml')
+  //   .pipe(haml({
+  //     compilerOpts: {cache: false}
+  //   }))
+  //   .on("error", notify.onError(function (error) {
+  //     return "Jade error: " + error.message
+  //   }))
+  //   .pipe(gulp.dest('./dist/'))
+  //   .pipe(notify('Compiled HTML'))
+  //  -----------------------------------------------------
+
 })
 
 //-- CSS -----------------------------------------------------
@@ -146,6 +163,7 @@ gulp.task('server', function() {
 //-- Watch -----------------------------------------------------
 gulp.task('watch', function(){
   gulp.watch('./src/jade/**/*.jade', ['html'])
+  gulp.watch('./src/haml/**/*.haml', ['html'])
   gulp.watch('./src/js/**/*.js', ['javascript'])
   gulp.watch('./src/stylus/**/*.styl', ['css'])
   gulp.watch('./src/sass/**/*.sass', ['css'])
