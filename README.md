@@ -10,6 +10,8 @@ README
 1. or visit `http://fed.dev` in your browser
 1. Enjoy!
 
+#Sass Option
+If instead of Stylus you prefer to use Sass, simply uncomment the "with SASS" gulp task and comment out the "with STYL" gulp task. Never run both simultaniously.
 
 # Preferred Tools
 1. Js Image Carousel:
@@ -18,3 +20,4 @@ README
   `skrollr` http://prinzhorn.github.io/skrollr/
 1. Js Accordion:
   `jquerry.accordion` http://jqueryui.com/accordion/
+
