@@ -3,6 +3,7 @@ var gulp = require('gulp'),
     autoprefixer = require('gulp-autoprefixer'),
     rename = require('gulp-rename'),
     stylus = require('gulp-stylus'),
+    sass = require('gulp-ruby-sass'),
     minify = require('gulp-minify-css'),
     uglify = require('gulp-uglify'),
     order = require('gulp-order'),
@@ -57,6 +58,7 @@ gulp.task('html', function() {
 
 //-- CSS -----------------------------------------------------
 gulp.task('css', function() {
+  //with STYL -----------------------------------------------------
   // custom CSS
   gulp.src('./src/stylus/app.styl')
     .pipe(stylus({cache: false}))
@@ -67,6 +69,18 @@ gulp.task('css', function() {
     .pipe(minify())
     .pipe(gulp.dest('./dist/css'))
     .pipe(notify('Compiled CSS'))
+
+  //with SASS -----------------------------------------------------
+  // custom CSS
+  // gulp.src('./src/sass/app.sass')
+  //   .pipe(sass({cache: false}))
+  //   .on("error", notify.onError(function (error) {
+  //     return "Sass error: " + error.message
+  //   }))
+  //   .pipe(autoprefixer('last 2 version', 'safari 5', 'ie 8', 'ie 9', 'opera 12.1', 'ios 6', 'android 4'))
+  //   .pipe(minify())
+  //   .pipe(gulp.dest('./dist/css'))
+  //   .pipe(notify('Compiled CSS'))
 
   // vendor CSS
   if(vendorCSS.length > 0){
@@ -134,6 +148,7 @@ gulp.task('watch', function(){
   gulp.watch('./src/jade/**/*.jade', ['html'])
   gulp.watch('./src/js/**/*.js', ['javascript'])
   gulp.watch('./src/stylus/**/*.styl', ['css'])
+  gulp.watch('./src/sass/**/*.sass', ['css'])
 })
 
 //-- Default -----------------------------------------------------
