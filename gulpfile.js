@@ -17,8 +17,8 @@ const gulp      = require('gulp'),
   nodemon       = require('gulp-nodemon'),
   notify        = require('gulp-notify'),
   revall        = require('gulp-rev-all'),
+  replace       = require('gulp-replace-task'),
   merge         = require('merge-stream')
-  // TODO: add gulp-changed
 
 const VENDOR_JS = [
   BOWER_DIR + '/jquery/jquery.js'
@@ -50,19 +50,19 @@ gulp.task('images', function(){
 
 //-- Pollyfills for IE ------------------------------------------------------
 gulp.task('polyfills', function(){
-  var stream_js = gulp.src(POLYFILL_IE.js)
+  var js = gulp.src(POLYFILL_IE.js)
     .pipe(gulp.dest(DIST_DIR + '/js/polyfill'))
 
-  var stream_css = gulp.src(POLYFILL_IE.css)
+  var css = gulp.src(POLYFILL_IE.css)
     .pipe(gulp.dest(DIST_DIR + '/css/polyfill'))
 
-  return merge(stream_js, stream_css)
+  return merge(js, css)
 })
 
 //-- CSS --------------------------------------------------------------------
 gulp.task('css', function() {
   
-  var stream_app = gulp.src(SRC_DIR + '/stylus/app.styl')
+  var app = gulp.src(SRC_DIR + '/stylus/app.styl')
     .pipe(stylus({ cache: false }))
     .on('error', notify.onError(function (error) {
       return 'Stylus error: ' + error.message
@@ -72,34 +72,34 @@ gulp.task('css', function() {
     .pipe(gulp.dest(DIST_DIR + '/css'))
 
   if (VENDOR_CSS.length > 0) {
-    var stream_vendor = gulp.src(VENDOR_CSS)
+    var vendor = gulp.src(VENDOR_CSS)
       .pipe(minify())
       .pipe(concat('vendor.min.css'))
       .pipe(gulp.dest(DIST_DIR + '/css'))
-    return merge(stream_app, stream_vendor)
+    return merge(app, vendor)
   } else {
-    return stream_app
+    return app
   }
 })
 
 //-- JS ---------------------------------------------------------------------
 gulp.task('javascript', function() {
 
-  var stream_app = gulp.src(SRC_DIR + '/js/**/*.js')
+  var app = gulp.src(SRC_DIR + '/js/**/*.js')
     .pipe(order(['app.js', '*.js']))
     .pipe(concat('app.min.js'))
     .pipe(uglify())
     .pipe(gulp.dest(DIST_DIR + '/js'))
 
   if (VENDOR_JS.length > 0) {
-    var stream_vendor = gulp.src(VENDOR_JS)
+    var vendor = gulp.src(VENDOR_JS)
       .pipe(order(['jquery.js', '*.js']))
       .pipe(concat('vendor.min.js'))
       .pipe(uglify())
       .pipe(gulp.dest(DIST_DIR + '/js'))
-    return merge(stream_app, stream_vendor)
+    return merge(app, vendor)
   } else {
-    return stream_app
+    return app
   }
 })
 
@@ -115,23 +115,31 @@ gulp.task('html', function() {
 
 //-- Guidedog ---------------------------------------------------------------
 gulp.task('guidedog', function() {
-  var stream_js = gulp.src(BOWER_DIR + '/guidedog/dist/guidedog.min.js')
+  var js = gulp.src(BOWER_DIR + '/guidedog/dist/guidedog.min.js')
     .pipe(gulp.dest(DIST_DIR + '/js'))
 
-  var stream_css = gulp.src(BOWER_DIR + '/guidedog/dist/guidedog.css')
+  var css = gulp.src(BOWER_DIR + '/guidedog/dist/guidedog.css')
     .pipe(gulp.dest(DIST_DIR + '/css'))
   
-  return merge(stream_js, stream_css)
+  return merge(js, css)
 })
 
 //-- Rails Assets -----------------------------------------------------------
-gulp.task('assets', ['html', 'polyfills', 'css', 'javascript', 'images'], function(){
+gulp.task('revision', ['html', 'polyfills', 'css', 'javascript', 'images'], function(){
    return gulp.src(DIST_DIR + '/**')
     .pipe(revall({ ignore: [/^\/favicon.ico$/g, '.html'] }))
     .pipe(gulp.dest(ASSET_DIR))
     .pipe(revall.manifest({ fileName: 'assets.json' }))
     .pipe(gulp.dest(ASSET_DIR))
 })
+
+gulp.task('link_revisions', ['revision'], function(){
+  return gulp.src(ASSET_DIR + '/css/**/*')
+    .pipe(replace({ patterns: [{ json: require(ASSET_DIR + '/assets.json') }], usePrefix: false }))
+    .pipe(gulp.dest(ASSET_DIR + '/css'))
+})
+
+gulp.task('assets', ['revision', 'link_revisions'])
 
 //-- Server -----------------------------------------------------------------
 gulp.task('server', function() {
