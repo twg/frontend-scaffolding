@@ -16,7 +16,9 @@ const gulp      = require('gulp'),
   concat        = require('gulp-concat'),
   nodemon       = require('gulp-nodemon'),
   notify        = require('gulp-notify'),
-  revall        = require('gulp-rev-all')
+  revall        = require('gulp-rev-all'),
+  merge         = require('merge-stream')
+  // TODO: add gulp-changed
 
 const VENDOR_JS = [
   BOWER_DIR + '/jquery/jquery.js'
@@ -42,23 +44,25 @@ const POLYFILL_IE ={
 
 //-- Images -----------------------------------------------------------------
 gulp.task('images', function(){
-  gulp.src(SRC_DIR + '/images/**/*')
+  return gulp.src(SRC_DIR + '/images/**/*')
     .pipe(gulp.dest(DIST_DIR + '/images'))
 })
 
 //-- Pollyfills for IE ------------------------------------------------------
-gulp.task('polyfills', function() {
-  gulp.src(POLYFILL_IE.js)
+gulp.task('polyfills', function(){
+  var stream_js = gulp.src(POLYFILL_IE.js)
     .pipe(gulp.dest(DIST_DIR + '/js/polyfill'))
-  
-  gulp.src(POLYFILL_IE.css)
+
+  var stream_css = gulp.src(POLYFILL_IE.css)
     .pipe(gulp.dest(DIST_DIR + '/css/polyfill'))
+
+  return merge(stream_js, stream_css)
 })
 
 //-- CSS --------------------------------------------------------------------
 gulp.task('css', function() {
   
-  gulp.src(SRC_DIR + '/stylus/app.styl')
+  var stream_app = gulp.src(SRC_DIR + '/stylus/app.styl')
     .pipe(stylus({ cache: false }))
     .on('error', notify.onError(function (error) {
       return 'Stylus error: ' + error.message
@@ -68,34 +72,40 @@ gulp.task('css', function() {
     .pipe(gulp.dest(DIST_DIR + '/css'))
 
   if (VENDOR_CSS.length > 0) {
-    gulp.src(VENDOR_CSS)
+    var stream_vendor = gulp.src(VENDOR_CSS)
       .pipe(minify())
       .pipe(concat('vendor.min.css'))
       .pipe(gulp.dest(DIST_DIR + '/css'))
+    return merge(stream_app, stream_vendor)
+  } else {
+    return stream_app
   }
 })
 
 //-- JS ---------------------------------------------------------------------
 gulp.task('javascript', function() {
 
-  gulp.src(SRC_DIR + '/js/**/*.js')
+  var stream_app = gulp.src(SRC_DIR + '/js/**/*.js')
     .pipe(order(['app.js', '*.js']))
     .pipe(concat('app.min.js'))
     .pipe(uglify())
     .pipe(gulp.dest(DIST_DIR + '/js'))
 
   if (VENDOR_JS.length > 0) {
-    gulp.src(VENDOR_JS)
+    var stream_vendor = gulp.src(VENDOR_JS)
       .pipe(order(['jquery.js', '*.js']))
       .pipe(concat('vendor.min.js'))
       .pipe(uglify())
       .pipe(gulp.dest(DIST_DIR + '/js'))
+    return merge(stream_app, stream_vendor)
+  } else {
+    return stream_app
   }
 })
 
 //-- HTML -------------------------------------------------------------------
 gulp.task('html', function() {
-  gulp.src(SRC_DIR + '/jade/*.jade')
+  return gulp.src(SRC_DIR + '/jade/*.jade')
     .pipe(jade({ pretty: true }))
     .on('error', notify.onError(function (error) {
       return "Jade error: " + error.message
@@ -105,23 +115,23 @@ gulp.task('html', function() {
 
 //-- Guidedog ---------------------------------------------------------------
 gulp.task('guidedog', function() {
-  gulp.src(BOWER_DIR + '/guidedog/dist/guidedog.min.js')
+  var stream_js = gulp.src(BOWER_DIR + '/guidedog/dist/guidedog.min.js')
     .pipe(gulp.dest(DIST_DIR + '/js'))
 
-  gulp.src(BOWER_DIR + '/guidedog/dist/guidedog.css')
+  var stream_css = gulp.src(BOWER_DIR + '/guidedog/dist/guidedog.css')
     .pipe(gulp.dest(DIST_DIR + '/css'))
+  
+  return merge(stream_js, stream_css)
 })
 
 //-- Rails Assets -----------------------------------------------------------
-gulp.task('revision', function(){
-  gulp.src(DIST_DIR + '/**')
+gulp.task('assets', ['html', 'polyfills', 'css', 'javascript', 'images'], function(){
+   return gulp.src(DIST_DIR + '/**')
     .pipe(revall({ ignore: [/^\/favicon.ico$/g, '.html'] }))
     .pipe(gulp.dest(ASSET_DIR))
     .pipe(revall.manifest({ fileName: 'assets.json' }))
     .pipe(gulp.dest(ASSET_DIR))
 })
-
-gulp.task('assets', ['html', 'polyfills', 'css', 'javascript', 'images', 'revision'])
 
 //-- Server -----------------------------------------------------------------
 gulp.task('server', function() {
@@ -130,7 +140,7 @@ gulp.task('server', function() {
     script: 'server.js',
     watch:  ['src', 'server.js'],
     ext:    'js json',
-    env: {
+    env:    {
       NODE_ENV: 'development'
     }
   })
