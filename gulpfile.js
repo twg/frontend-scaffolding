@@ -134,7 +134,7 @@ gulp.task('revision', ['html', 'polyfills', 'css', 'javascript', 'images'], func
 })
 
 gulp.task('link_revisions', ['revision'], function(){
-  return gulp.src(ASSET_DIR + '/css/**/*')
+  return gulp.src(ASSET_DIR + '/css/**/*.css')
     .pipe(replace({ patterns: [{ json: require(ASSET_DIR + '/assets.json') }], usePrefix: false }))
     .pipe(gulp.dest(ASSET_DIR + '/css'))
 })
