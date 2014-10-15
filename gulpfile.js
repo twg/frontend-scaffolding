@@ -1,5 +1,10 @@
+const ASSET_DIR = './assets'
+const DIST_DIR  = './dist'
+const SRC_DIR   = './src'
+const BOWER_DIR = './bower_components'
+
 //-- Includes ---------------------------------------------------------------
-var gulp = require('gulp'),
+const gulp      = require('gulp'),
   autoprefixer  = require('gulp-autoprefixer'),
   rename        = require('gulp-rename'),
   rev           = require('gulp-rev'),
@@ -11,135 +16,120 @@ var gulp = require('gulp'),
   concat        = require('gulp-concat'),
   nodemon       = require('gulp-nodemon'),
   notify        = require('gulp-notify'),
-  addsrc        = require('gulp-add-src') // issue with gulp 3.8.8. maybe newer version won't need this
+  revall        = require('gulp-rev-all')
 
-var vendorJS = [
-  './bower_components/jquery/jquery.js'
+const VENDOR_JS = [
+  BOWER_DIR + '/jquery/jquery.js'
 ]
 
-var vendorCSS = [
+const VENDOR_CSS = [
 
 ]
 
-var polyfillIe ={
+const POLYFILL_IE ={
   'js': [
-    'bower_components/respond/dest/respond.min.js',
-    'bower_components/html5shiv/dist/html5shiv.min.js',
-    'bower_components/selectivizr/selectivizr.js',
-    'bower_components/background-size-polyfill/backgroundsize.min.htc',
-    'bower_components/html5-placeholder-polyfill/dist/placeholder_polyfill.jquery.min.combo.js',
-    'bower_components/box-sizing-polyfill/boxsizing.htc'
+    BOWER_DIR + '/respond/dest/respond.min.js',
+    BOWER_DIR + '/html5shiv/dist/html5shiv.min.js',
+    BOWER_DIR + '/selectivizr/selectivizr.js',
+    BOWER_DIR + '/background-size-polyfill/backgroundsize.min.htc',
+    BOWER_DIR + '/html5-placeholder-polyfill/dist/placeholder_polyfill.jquery.min.combo.js',
+    BOWER_DIR + '/box-sizing-polyfill/boxsizing.htc'
   ],
   'css': [
-    'bower_components/html5-placeholder-polyfill/dist/placeholder_polyfill.min.css'
+    BOWER_DIR + '/html5-placeholder-polyfill/dist/placeholder_polyfill.min.css'
   ]
 }
 
-
-//-- Pollyfills for IE ------------------------------------------------------
-gulp.task('polyfillIe', function() {
-  gulp.src(polyfillIe.js)
-    .pipe(gulp.dest('./dist/js/'));
-  gulp.src(polyfillIe.css)
-    .pipe(gulp.dest('./dist/css/'));
-});
-
-
-//-- HTML -------------------------------------------------------------------
-gulp.task('html', function() {
-  gulp.src('./src/jade/*.jade')
-    .pipe(jade({
-      pretty: true
-    }))
-    .on("error", notify.onError(function (error) {
-      return "Jade error: " + error.message
-    }))
-    .pipe(gulp.dest('./dist/'))
-    .pipe(notify('Compiled HTML'))
-})
-
 //-- Images -----------------------------------------------------------------
 gulp.task('images', function(){
-  gulp.src('./src/images/*')
-    .pipe(rev())
-    .pipe(gulp.dest('./dist/images'))
-    .pipe(rev.manifest({path: 'img-manifest.json'}))
-    .pipe(gulp.dest('./dist'))
-    .pipe(notify('Compiled Images'))
+  gulp.src(SRC_DIR + '/images/**/*')
+    .pipe(gulp.dest(DIST_DIR + '/images'))
 })
 
+//-- Pollyfills for IE ------------------------------------------------------
+gulp.task('polyfills', function() {
+  gulp.src(POLYFILL_IE.js)
+    .pipe(gulp.dest(DIST_DIR + '/js/polyfill'))
+  
+  gulp.src(POLYFILL_IE.css)
+    .pipe(gulp.dest(DIST_DIR + '/css/polyfill'))
+})
 
 //-- CSS --------------------------------------------------------------------
 gulp.task('css', function() {
-  // custom CSS
-  gulp.src('./src/stylus/app.styl')
-    .pipe(stylus({cache: false}))
-    .on("error", notify.onError(function (error) {
-      return "Stylus error: " + error.message
+  
+  gulp.src(SRC_DIR + '/stylus/app.styl')
+    .pipe(stylus({ cache: false }))
+    .on('error', notify.onError(function (error) {
+      return 'Stylus error: ' + error.message
     }))
     .pipe(autoprefixer('last 2 version', 'safari 5', 'ie 8', 'ie 9', 'opera 12.1', 'ios 6', 'android 4'))
     .pipe(minify())
-    .pipe(rev())
-    .pipe(gulp.dest('./dist/css'))
-    .pipe(rev.manifest({path: 'css-manifest.json'}))
-    .pipe(gulp.dest('./dist'))
-    .pipe(notify('Compiled CSS'))
+    .pipe(gulp.dest(DIST_DIR + '/css'))
 
-  // vendor CSS
-  // if(vendorCSS.length > 0){
-//     gulp.src(vendorCSS)
-//       .pipe(minify())
-//       .pipe(concat('vendor.css'))
-//       .pipe(gulp.dest('./dist/css'))
-//   }
+  if (VENDOR_CSS.length > 0) {
+    gulp.src(VENDOR_CSS)
+      .pipe(minify())
+      .pipe(concat('vendor.min.css'))
+      .pipe(gulp.dest(DIST_DIR + '/css'))
+  }
 })
 
 //-- JS ---------------------------------------------------------------------
 gulp.task('javascript', function() {
-  // custom JS
-  gulp.src('./src/js/**/*.js')
-    .pipe(order([
-      'app.js',
-      '*.js'
-    ]))
+
+  gulp.src(SRC_DIR + '/js/**/*.js')
+    .pipe(order(['app.js', '*.js']))
     .pipe(concat('app.min.js'))
     .pipe(uglify())
-    .pipe(gulp.dest('./dist/js'))
-    .pipe(notify('Compiled JS'))
+    .pipe(gulp.dest(DIST_DIR + '/js'))
 
-  // vendor JS
-  if(vendorJS.length > 0){
-    gulp.src(vendorJS)
-      .pipe(order([
-        'jquery.js',
-        '*.js'
-      ]))
+  if (VENDOR_JS.length > 0) {
+    gulp.src(VENDOR_JS)
+      .pipe(order(['jquery.js', '*.js']))
       .pipe(concat('vendor.min.js'))
       .pipe(uglify())
-      .pipe(gulp.dest('./dist/js'))
+      .pipe(gulp.dest(DIST_DIR + '/js'))
   }
+})
+
+//-- HTML -------------------------------------------------------------------
+gulp.task('html', function() {
+  gulp.src(SRC_DIR + '/jade/*.jade')
+    .pipe(jade({ pretty: true }))
+    .on('error', notify.onError(function (error) {
+      return "Jade error: " + error.message
+    }))
+    .pipe(gulp.dest(DIST_DIR))
 })
 
 //-- Guidedog ---------------------------------------------------------------
 gulp.task('guidedog', function() {
-  // Guidedog js
-  gulp.src('bower_components/guidedog/dist/guidedog.min.js')
-    .pipe(gulp.dest('dist/js/'))
+  gulp.src(BOWER_DIR + '/guidedog/dist/guidedog.min.js')
+    .pipe(gulp.dest(DIST_DIR + '/js'))
 
-  // Guidedog css
-  gulp.src('bower_components/guidedog/dist/guidedog.css')
-    .pipe(gulp.dest('dist/css/'))
-
-  .pipe(notify('Compiled Guidedog'))
+  gulp.src(BOWER_DIR + '/guidedog/dist/guidedog.css')
+    .pipe(gulp.dest(DIST_DIR + '/css'))
 })
+
+//-- Rails Assets -----------------------------------------------------------
+gulp.task('revision', function(){
+  gulp.src(DIST_DIR + '/**')
+    .pipe(revall({ ignore: [/^\/favicon.ico$/g, '.html'] }))
+    .pipe(gulp.dest(ASSET_DIR))
+    .pipe(revall.manifest({ fileName: 'assets.json' }))
+    .pipe(gulp.dest(ASSET_DIR))
+})
+
+gulp.task('assets', ['html', 'polyfills', 'css', 'javascript', 'images', 'revision'])
 
 //-- Server -----------------------------------------------------------------
 gulp.task('server', function() {
   nodemon({
     verbose: false,
     script: 'server.js',
-    watch: ['src', 'server.js'],
-    ext: 'js json',
+    watch:  ['src', 'server.js'],
+    ext:    'js json',
     env: {
       NODE_ENV: 'development'
     }
@@ -148,10 +138,10 @@ gulp.task('server', function() {
 
 //-- Watch -----------------------------------------------------
 gulp.task('watch', function(){
-  gulp.watch('./src/jade/**/*.jade', ['html'])
-  gulp.watch('./src/js/**/*.js', ['javascript'])
-  gulp.watch('./src/stylus/**/*.styl', ['css'])
+  gulp.watch('./src/jade/**/*.jade',    ['html'])
+  gulp.watch('./src/js/**/*.js',        ['javascript'])
+  gulp.watch('./src/stylus/**/*.styl',  ['css'])
 })
 
 //-- Default -----------------------------------------------------
-gulp.task('default', ['html', 'css', 'javascript', 'guidedog', 'server', 'polyfillIe', 'watch'])
+gulp.task('default', ['html', 'css', 'javascript', 'polyfills', 'images', 'guidedog', 'server', 'watch'])

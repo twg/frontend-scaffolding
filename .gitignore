@@ -1,4 +1,5 @@
 .DS_Store
-build
-bower_components
-node_modules
+/bower_components
+/node_modules
+/dist
+/assets
