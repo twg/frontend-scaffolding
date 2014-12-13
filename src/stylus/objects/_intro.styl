@@ -1,0 +1,37 @@
+.intro-container
+  position: relative
+  height: 100%
+  transition: all 0.2s ease-in-out
+  // background: #2D3E50
+  // background: url('../img/spades.jpg') no-repeat center center fixed
+  // background-size: cover
+  
+.intro
+  height: 100%
+  max-width: 1140px
+  margin: 0 auto
+  display: table
+  color: white
+  
+  .wrapper
+    display: table-cell
+    vertical-align: middle
+  
+  p 
+    font-size: 18px
+
+#intro-quote,
+.intro-text
+  display: none
+
+#intro-quote
+  +media(lap)
+    font-size: 25px
+  +media(palm)
+    font-size: 16px
+    letter-spacing: 3px
+    text-align: left
+
+.intro-text
+  max-width: 600px
+  

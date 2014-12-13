@@ -1,5 +1,104 @@
 extends ./application_layout.jade
 
 block content
-  .container
-    | Content for IndexContent for IndexContent for IndexContent for IndexContent for IndexContent for IndexContent for IndexContent for IndexContent for IndexContent for IndexContent for IndexContent for IndexContent for IndexContent for IndexContent for IndexContent for IndexContent for IndexContent for IndexContent for IndexContent for IndexContent for IndexContent for IndexContent for IndexContent for IndexContent for IndexContent for IndexContent for IndexContent for IndexContent for IndexContent for IndexContent for IndexContent for IndexContent for Index
+  
+  video#bgvid(autoplay, loop, poster="video/087.jpg")
+    source(src="video/087.webm", type="video/webm")
+    source(src="video/087.m4v" type="video/m4v")
+
+  .intro-container
+    .intro 
+      .wrapper
+        h1#intro-quote.u-alignCenter
+          | “The world is full of 
+          span.bold magic things, 
+          | patiently waiting for our 
+          span.bold senses 
+          | to grow sharper.”
+          small.bold - W. B. Yeats
+        
+        .intro-text
+          h1.u-spacer2
+            | Mahmood Magic
+          h3 mag·ic
+          p /ˈmajik/
+          p the power of apparently influencing the course of events by using mysterious or supernatural forces.
+
+  .testimonial-container
+    .wrapper.u-alignCenter.u-paddingVertical8
+      .grid
+        .grid-3of4
+          p.p--testimonial Good Day! Mahmood 1&2 you were fantastic, you made my [bridal] shower that much more special... All my guests that had the pleasure in seeing your magic were amazed! I will defiantly be contacting you again for future events. I wish both of you the best of luck in the future.
+          span.testimonial-author Efsia Detullio
+
+
+  .about-container.light-container
+    .wrapper.u-alignCenter.u-paddingVertical8
+      .grid
+        .grid-1of2.grid-4of5--lap.grid-1of1--palm
+          .u-alignLeft
+            h2 About Mahmood Magic
+            p 
+              | Mahmood Magic are two brothers who have, through the deserts of Arabia to the ruins of Matchu Piccu in Peru and to the wonders of the Great Wall of China, learned the secrets to the art of mentalism and magic. Rather than using elaborate objects, sets, and machines, they bring a 
+              span.bold simpler touch to magic 
+              | that has rarely been seen before.
+      .grid
+        .grid-3of4.grid-4of5--lap.grid-1of1--palm
+          img.u-marginVertical3(src="img/profile-a-wide.jpg", alt="Mahmood Magic - Aaqib Mahmood")
+      .grid
+        .grid-1of2.grid-4of5--lap.grid-1of1--palm
+          .u-alignLeft
+            p Using day to day ordinary objects, the brothers have used their skills to entertain many guests at different venues ranging from Bar/Bat Mitzvas, Speaker Series, Weddings, Bridal Showers, Fundraisers, Birthdays Parties, Corporate Events, Family Holidays, and Banquet Dinners. 
+      
+      .grid
+        .grid-3of4.grid-4of5--lap.grid-1of1--palm
+          img.u-marginVertical3(src="img/profile-s-wide.jpg" alt="Mahmood Magic - Saqib Mahmood")
+
+      .grid
+        .grid-1of2.grid-4of5--lap.grid-1of1--palm
+          .u-alignLeft
+            p Mahmood Magic perform in a walk-around environment where everyone gets an up-close, personal and intimate experience while also performing parlour routines. The brothers love magic for the way it impacts people and provides entertainment for everyone.
+
+  .testimonial-container
+    .wrapper.u-alignCenter.u-paddingVertical8
+      .grid
+        .grid-3of4
+          p.p--testimonial All of our guests were marveled by your performance. Several commented back the next day about how mystified they were including John Hodgins our lawyer. You are pretty good if you can fool him! We will definitely use you for future functions and recommend you to our corporate connections.
+          span.testimonial-author Gregory D'Atri-Guiran
+
+  .portfolio-container.light-container
+    .wrapper.u-paddingVertical8
+      .u-alignCenter
+        .grid
+          .grid-1of2.grid-1of1--palm
+            h2 Portfolio
+
+      .grid
+        .grid-1of2.grid-1of1--palm
+          .video
+            iframe.u-spacer2(width="560", height="315" src="//www.youtube.com/embed/-jy7cSXcVBc?rel=0&amp;controls=0&amp;showinfo=0", frameborder="0", allowfullscreen)
+            h3.video-title.u-spacer2 Why Magic?
+            p.p--video-desc Why are the Mahmood Brothers fascinated in the art of magic? What has driven them and motivated their careers? It is an important but simple answer and has to be seen and experienced to be understood.
+        .grid-1of2.grid-1of1--palm
+          .video
+            iframe.u-spacer2(width="560", height="315" src="//www.youtube.com/embed/490FceJTJ-0?rel=0&amp;controls=0&amp;showinfo=0", frameborder="0", allowfullscreen)
+            h3.video-title.u-spacer2 Who is Mahmood Magic?
+            p.p--video-desc  Dive into the world of Mahmood Magic to find out who and what they are, along with clips of the duo performing for various clients across the globe.
+
+  .testimonial-container
+    .wrapper.u-alignCenter.u-paddingVertical8
+      .grid
+        .grid-3of4.grid-1of1--palm
+          p.p--testimonial Mahmood Magic amazed the audience with their mind boggling tricks! Their illusions were fantastic and definitely kept people on their toes! The expressions on peoples faces were priceless and we would recommend them as entertainers for any event! Thanks for adding excitement and suspense at my father's 60th birthday party!
+          span.testimonial-author Michelle Calomino
+
+  .call-to-action-container.u-paddingVertical8
+    .wrapper
+      .grid.u-alignCenter
+        .grid-1of2.grid-4of5--lap.grid-1of1--palm
+          p.p--call-to-action Get in touch!
+          form(name="htmlform", method="post", action="contactengine.php")
+            input(type="text", name="name", id="Name", placeholder="Your Name")
+            input(type="text", name="email", id="Email", placeholder="Your E-mail")
+            textarea(name="message", rows="9", cols="20", id="Message", placeholder="Your Message")
+            input(type="submit", name="submit", value="Submit", class="call-to-action")

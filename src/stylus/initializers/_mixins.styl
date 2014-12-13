@@ -27,10 +27,9 @@ description: |
   - size(8) | 237.375px
 */
 size(value)
-  result = 16px
+  result = 10px
   if value > 1
-    for num in (1...value)
-      result = result * 1.5
+    result = result * value
   else
     return result
 
