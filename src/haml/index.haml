@@ -8,13 +8,16 @@
     <link rel="stylesheet" href="/css/placeholder_polyfill.min.css">
     <link rel="stylesheet" type="text/css" href="/css/app.css">
   </head>
-  <body>
-    <div class="siteBody">
-      <header>Hello I'm a header</header>
-    </div>
-    <div class="siteFooter">
-      <footer>Hello I'm a footer</footer>
-    </div>
+  %body
+    .siteBody
+      %header Hello I'm a header
+
+      .container
+        %p I'm the main content! I'm the main content! I'm the main content! I'm the main content! I'm the main content!
+
+    .siteFooter
+      %footer Hello I'm a footer
+
     <script src="/js/respond.min.js" type="text/javascript"></script><script type="text/javascript" src="[JS library]"></script>
     <!--[if (gte IE 6)&(lte IE 8)]>
     <script type="text/javascript" src="./js/selectivizr.js"></script>

@@ -1,0 +1,66 @@
+@include replicate('.u-spacerWrap1')
+  margin-bottom: #{$size1} * -1
+@include replicate('.u-spacerWrap2')
+  margin-bottom: #{$size2} * -1
+@include replicate('.u-spacerWrap3')
+  margin-bottom: #{$size3} * -1
+@include replicate('.u-spacerWrap4')
+  margin-bottom: #{$size4} * -1
+@include replicate('.u-spacerWrap5')
+  margin-bottom: #{$size5} * -1
+
+@include replicate('.u-spacer1')
+  margin-bottom: #{$size1}
+@include replicate('.u-spacer2')
+  margin-bottom: #{$size2}
+@include replicate('.u-spacer3')
+  margin-bottom: #{$size3}
+@include replicate('.u-spacer4')
+  margin-bottom: #{$size4}
+@include replicate('.u-spacer5')
+  margin-bottom: #{$size5}
+
+
+@include replicate('.u-padding1')
+  padding: #{$size1}
+@include replicate('.u-padding2')
+  padding: #{$size2}
+@include replicate('.u-padding3')
+  padding: #{$size3}
+@include replicate('.u-padding4')
+  padding: #{$size4}
+@include replicate('.u-padding5')
+  padding: #{$size5}
+
+@include replicate('.u-alignLeft')
+  text-align: left
+
+@include replicate('.u-alignCenter')
+  text-align: center
+
+
+@include replicate('.u-alignRight')
+  text-align: right
+
+
+@include replicate('.u-block')
+  display: block
+
+
+@include replicate('.u-inlineBlock')
+  display: inline-block
+
+
+@include replicate('.u-relative')
+  position: relative
+
+
+@include replicate('.u-wide')
+  width: 100%
+
+
+.u-clearfix
+  &:after
+    content: ""
+    display: table
+    clear: both

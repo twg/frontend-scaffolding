@@ -9,8 +9,7 @@ title: strong
 description: Use to change font weight to 'bold'
 jade: strong lorem5
 */
-strong,
-.bold
+strong
   font-weight: 700
 
 /*!!!
@@ -27,59 +26,3 @@ em
   font-style: italic
 i
   font-style: italic
-
-h1,
-h2,
-h3,
-h4,
-h5
-  font-family: "proxima-nova",sans-serif
-  margin: 0
-
-h1
-  color: white
-  letter-spacing: 15px
-  text-transform: uppercase
-  font-weight: 300
-  font-size: 25px
-  line-height: 2
-  
-  small
-    display: block
-    letter-spacing: 5px
-    font-size: 15px
-    margin-top: 20px
-
-h2
-  text-align: center
-  font-size: 34px
-  position: relative
-  margin-bottom: 70px
-  &:after
-    content: ''
-    width: 50px
-    height: 5px
-    background: primary-color
-    position: absolute
-    top: 180%
-    left: 50%
-    transform:translateX(-50%)
-  +media(palm)
-    font-size: 29px
-    
-
-h3
-  font-size: 28px
-  +media(palm)
-    font-size: 22px
-
-span
-  font-family: "proxima-nova",sans-serif
-
-p
-  font-family: "proxima-nova",sans-serif
-  font-size: 22px
-  line-height: 1.7
-  margin-top: 0
-  +media(palm)
-    font-size: 16px

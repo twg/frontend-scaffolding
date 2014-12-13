@@ -3,10 +3,10 @@ section: Utilities
 title: .u-spacerX
 description: When possible all spacing [should go only down](http://csswizardry.com/2012/06/single-direction-margin-declarations/) and not up.
 jade: |
-  - for(var i=1; i<=8; i++)
+  - for(var i=1; i<=5; i++)
     div(class="guidedog u-spacer"+i) u-spacer#{i}
 */
-for num in (1..8)
+for num in (1..5)
   +replicate(s('.u-spacerWrap%s', num))
     margin-bottom: size(num) * -1
   +replicate(s('.u-spacer%s', num))
@@ -20,7 +20,7 @@ jade: |
   - for(var i=1; i<=5; i++)
     div(class="guidedog u-padding"+i) u-padding#{i}
 */
-for num in (1..8)
+for num in (1..5)
   +replicate(s('.u-padding%s', num))
     padding: size(num)
 
