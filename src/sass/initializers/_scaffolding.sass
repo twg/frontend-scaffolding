@@ -32,7 +32,7 @@ article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section
     vertical-align: top
   @each $bp in $bps
     @media #{breakpointValue($bp)}
-      margin-left: #{breakpointGutter($bp)} * -1
+      margin-left: breakpointGutter($bp) * -1
       > *
         padding-left: #{breakpointGutter($bp)}
 
@@ -84,9 +84,9 @@ article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section
 @each $bp in $bps
   @media #{breakpointValue($bp)}
     .combo-first
-      padding-right: (#{breakpointGutter($bp)} / 2)
+      padding-right: (breakpointGutter($bp) / 2)
     .combo-last
-      padding-left: (#{breakpointGutter($bp)} / 2)
+      padding-left: (breakpointGutter($bp) / 2)
 
 @include replicate('.combo--middle')
   > *
