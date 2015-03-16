@@ -1,6 +1,6 @@
 {
   "name": "twg-frontend-scaffolding",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "homepage": "https://github.com/twg/frontend-scaffolding",
   "authors": [
     "Mark Appleby <mark@twg.ca>"
@@ -12,7 +12,8 @@
     "bower_components",
     "lib",
     "gulp",
-    "index.js"
+    "index.js",
+    "gulpfile.js"
   ],
   "dependencies": {
   }

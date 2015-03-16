@@ -5,12 +5,12 @@ module.exports = {
   styles: {
     watch: 'lib/**/*.styl',
     src: 'lib/_scaffolding.styl',
-    dest: 'dist/css'
+    dest: 'dist/'
   },
   scripts: {
     watch: 'lib/**/*.js',
     src: 'lib/**/*.js',
-    dest: 'dist/js'
+    dest: 'dist/'
   },
   templates: {
     watch: 'lib/**/*.jade',
