@@ -1,27 +1,19 @@
 {
-  "name": "default-project",
-  "main": "server.js",
-  "version": "0.0.1",
+  "name": "twg-frontend-scaffolding",
+  "version": "0.1.0",
+  "homepage": "https://github.com/twg/frontend-scaffolding",
   "authors": [
-    "Mark Appleby <themarkappleby@gmail.com>"
+    "Mark Appleby <mark@twg.ca>"
   ],
+  "license": "MIT",
   "ignore": [
     "**/.*",
     "node_modules",
     "bower_components",
-    "build"
+    "lib",
+    "gulp",
+    "index.js"
   ],
   "dependencies": {
-    "jquery": "~1.9.1",
-    "guidedog": "~0.1.7",
-    "background-size-polyfill": "~0.2.0",
-    "html5shiv": "~3.7.2",
-    "respond": "~1.4.2",
-    "selectivizr": "~1.0.2"
-  },
-  "devDependencies": {
-    "guidedog": "~0.1.10",
-    "html5-placeholder-polyfill": "~2.0.10",
-    "box-sizing-polyfill": "*"
   }
 }

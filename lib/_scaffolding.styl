@@ -1,3 +1,39 @@
+/*
+section: Mixins
+title: +replicate(selector)
+description: The replicate function allows you to loop through a selector and create all the breakpoint specific modifiers for that selector automatically.
+*/
+replicate(selector)
+  {selector}
+    {block}
+  for key, value in breakpoints
+    @media value.breakpoint
+      {selector}--{key}
+        {block}
+
+/*
+section: Mixins
+title: +media(breakpoint) 
+description: To style elements at different screen sizes we use a function [i.e. +media(large)] to call the media query and pass to it a block with the new styling.
+*/
+media(bp)
+  for key, value in breakpoints
+    if key == bp
+      @media value.breakpoint
+        {block}
+
+base-font-size = 16px
+grid-columns = 12
+gutter-size = 24px
+
+breakpoints = {
+  large: {breakpoint: '(min-width: 481px)', gutter: gutter-size},
+  desk: {breakpoint: '(min-width: 1024px)', gutter: gutter-size},
+  lap: {breakpoint: '(min-width: 481px) and (max-width: 1023px)', gutter: gutter-size},
+  portable: {breakpoint: '(max-width: 1023px)', gutter: gutter-size},
+  palm: {breakpoint: '(max-width: 480px)', gutter: gutter-size}
+}
+
 html, body
   margin: 0
   padding: 0
@@ -13,7 +49,7 @@ html, body
 article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section
   display: block
 
-/*!!!
+/*
 section: Scaffolding
 title: .container
 description: The `.container` enforces the max-width of the site on its children.
@@ -23,7 +59,7 @@ jade: .container lorem5
   margin: 0 auto
   max-width: 1024px
 
-/*!!!
+/*
 section: Scaffolding
 title: .siteFooter & .siteBody
 description: The sticky footer is created using a [display:table trick based on this article](http://galengidman.com/2014/03/25/responsive-flexible-height-sticky-footers-in-css/), `.siteBody` is used to wrap everything inside of the body except for the footer which gets wrapped with `.siteFooter` as a sibling class.
@@ -46,26 +82,6 @@ jade: |
   height: 100%
   display: table-row
 
-/*!!!
-section: Scaffolding
-title: .grid
-description: |
-  The grid system is inspired by the [CSS Wizardry Grid](https://github.com/csswizardry/csswizardry-grids). The following changes have been made:
-
-  - now adheres to the TWG naming convention
-  - flexible gutter sizes based on the breakpoint
-  - no markup fix or word-spacing fix needed
-  - includes the `large` breakpoint
-  - more granularity (ie. .grid-3of11 is now possible)
-  - variable number of columns (ie. 16 column grids now possible)
-jade: |
-  .grid.grid--middle.grid--rev.u-spacer2
-    - for(var i=1; i<=3; i++)
-      .grid-1of4.grid-1of2--portable
-        .guidedog grid #{i}
-    .grid-1of4.grid-1of2--portable
-      .guidedog lorem2
-*/
 .grid
   font-size: 0
   > *
@@ -108,7 +124,7 @@ for key, value in breakpoints
     direction ltr
     text-align left
 
-/*!!!
+/*
 section: Scaffolding
 title: .combo
 jade: |
