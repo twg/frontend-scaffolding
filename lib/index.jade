@@ -1,0 +1,26 @@
+doctype html
+html(lang="en", ng-app="app")
+  head
+    title Boilerplate
+    link(rel="stylesheet", type="text/css", href="css/_scaffolding.css")
+    style(type="text/css").
+      body{
+        padding: 20px;
+      }
+      .block{
+        background: #ccc;
+        padding: 20px;
+        margin-bottom: 20px
+      }
+  body
+    .grid
+      .grid-1of2 
+        .block half
+      .grid-1of2 
+        .block half
+
+    .grid
+      .grid-2of3
+        .block two thirds
+      .grid-1of3
+        .block one third

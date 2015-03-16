@@ -1,0 +1,19 @@
+{
+  "name": "twg-frontend-scaffolding",
+  "version": "0.1.0",
+  "homepage": "https://github.com/twg/frontend-scaffolding",
+  "authors": [
+    "Mark Appleby <mark@twg.ca>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "lib",
+    "gulp",
+    "index.js"
+  ],
+  "dependencies": {
+  }
+}
