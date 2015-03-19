@@ -1,0 +1,13 @@
+replicate(selector)
+  {selector}
+    {block}
+  for key, value in breakpoints
+    @media value.breakpoint
+      {selector}--{key}
+        {block}
+
+media(bp)
+  for key, value in breakpoints
+    if key == bp
+      @media value.breakpoint
+        {block}

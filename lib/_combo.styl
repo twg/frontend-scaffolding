@@ -1,0 +1,39 @@
+.combo
+  display: table
+  width: 100%
+  > .combo-first
+    width: 0
+    white-space: nowrap
+    img
+      max-width: none
+  > .combo-last
+    width: 100%
+
+.combo-first, .combo-last
+  display: table-cell
+  vertical-align: top
+
+for key, value in breakpoints
+  @media value.breakpoint
+    .combo-first
+      padding-right: (value.gutter / 2)
+    .combo-last
+      padding-left: (value.gutter / 2)
+
++replicate('.combo--middle')
+  > *
+    vertical-align: middle
+
++replicate('.combo--bottom')
+  > *
+    vertical-align: bottom
+
++replicate('.combo--rev')
+  > .combo-first
+    width: 100%
+    white-space: normal
+  > .combo-last
+    width: 0
+    white-space: nowrap
+    img
+      max-width: none

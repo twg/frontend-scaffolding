@@ -4,7 +4,7 @@ module.exports = {
   root: 'dist/',
   styles: {
     watch: 'lib/**/*.styl',
-    src: 'lib/_scaffolding.styl',
+    src: 'lib/**/*.styl',
     dest: 'dist/'
   },
   scripts: {

@@ -1,0 +1,42 @@
+.container
+  margin: 0 auto
+  max-width: 1024px
+  
+.grid
+  font-size: 0
+  > *
+    font-size: base-font-size
+    display: inline-block
+    vertical-align: top
+  for key, value in breakpoints
+    @media value.breakpoint
+      margin-left: value.gutter * -1
+      > *
+        padding-left: value.gutter
+
+for column in (1..grid-columns)
+  for num in (1..column)
+    .grid-{num}of{column}
+      width: (num/column) * 100%
+
+for key, value in breakpoints
+  @media value.breakpoint
+    for column in (1..grid-columns)
+      for num in (1..column)
+        .grid-{num}of{column}--{key}
+          width: (num/column) * 100%
+
++replicate('.grid--middle')
+  > *
+    vertical-align: middle
+
++replicate('.grid--bottom')
+  > *
+    vertical-align: bottom
+
++replicate('.grid--rev')
+  direction rtl
+  text-align left
+  > *
+    direction ltr
+    text-align left

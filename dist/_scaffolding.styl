@@ -1,8 +1,3 @@
-/*
-section: Mixins
-title: +replicate(selector)
-description: The replicate function allows you to loop through a selector and create all the breakpoint specific modifiers for that selector automatically.
-*/
 replicate(selector)
   {selector}
     {block}
@@ -11,11 +6,6 @@ replicate(selector)
       {selector}--{key}
         {block}
 
-/*
-section: Mixins
-title: +media(breakpoint) 
-description: To style elements at different screen sizes we use a function [i.e. +media(large)] to call the media query and pass to it a block with the new styling.
-*/
 media(bp)
   for key, value in breakpoints
     if key == bp
@@ -41,99 +31,12 @@ html, body
   height: 100%
   display: table
 
-// apply border-box to all the things
 *, *:before, *:after
   box-sizing: border-box
 
-// ensure all html5 elements are set to block (for IE)
 article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section
   display: block
 
-/*
-section: Scaffolding
-title: .container
-description: The `.container` enforces the max-width of the site on its children.
-jade: .container lorem5
-*/
-.container
-  margin: 0 auto
-  max-width: 1024px
-
-/*
-section: Scaffolding
-title: .siteFooter & .siteBody
-description: The sticky footer is created using a [display:table trick based on this article](http://galengidman.com/2014/03/25/responsive-flexible-height-sticky-footers-in-css/), `.siteBody` is used to wrap everything inside of the body except for the footer which gets wrapped with `.siteFooter` as a sibling class.
-jade: |
-  body
-    .siteBody
-      header
-        | Hello I'm a header
-      section
-        | Hello I'm the main content
-    .siteFooter
-      footer
-        | Hello I'm a footer
-*/
-.siteFooter
-  display: table-row
-  height: 1px
-
-.siteBody
-  height: 100%
-  display: table-row
-
-.grid
-  font-size: 0
-  > *
-    font-size: base-font-size
-    display: inline-block
-    vertical-align: top
-  for key, value in breakpoints
-    @media value.breakpoint
-      margin-left: value.gutter * -1
-      > *
-        padding-left: value.gutter
-
-// define grid items
-for column in (1..grid-columns)
-  for num in (1..column)
-    .grid-{num}of{column}
-      width: (num/column) * 100%
-
-// define breakpoint grid items
-for key, value in breakpoints
-  @media value.breakpoint
-    for column in (1..grid-columns)
-      for num in (1..column)
-        .grid-{num}of{column}--{key}
-          width: (num/column) * 100%
-
-// grid modifiers
-+replicate('.grid--middle')
-  > *
-    vertical-align: middle
-
-+replicate('.grid--bottom')
-  > *
-    vertical-align: bottom
-
-+replicate('.grid--rev')
-  direction rtl
-  text-align left
-  > *
-    direction ltr
-    text-align left
-
-/*
-section: Scaffolding
-title: .combo
-jade: |
-  .combo
-    .combo-first
-      .guidedog Combo First
-    .combo-last
-      .guidedog lorem5
-*/
 .combo
   display: table
   width: 100%
@@ -173,3 +76,54 @@ for key, value in breakpoints
     white-space: nowrap
     img
       max-width: none
+
+.container
+  margin: 0 auto
+  max-width: 1024px
+  
+.grid
+  font-size: 0
+  > *
+    font-size: base-font-size
+    display: inline-block
+    vertical-align: top
+  for key, value in breakpoints
+    @media value.breakpoint
+      margin-left: value.gutter * -1
+      > *
+        padding-left: value.gutter
+
+for column in (1..grid-columns)
+  for num in (1..column)
+    .grid-{num}of{column}
+      width: (num/column) * 100%
+
+for key, value in breakpoints
+  @media value.breakpoint
+    for column in (1..grid-columns)
+      for num in (1..column)
+        .grid-{num}of{column}--{key}
+          width: (num/column) * 100%
+
++replicate('.grid--middle')
+  > *
+    vertical-align: middle
+
++replicate('.grid--bottom')
+  > *
+    vertical-align: bottom
+
++replicate('.grid--rev')
+  direction rtl
+  text-align left
+  > *
+    direction ltr
+    text-align left
+
+.siteFooter
+  display: table-row
+  height: 1px
+
+.siteBody
+  height: 100%
+  display: table-row

@@ -6,7 +6,7 @@ var paths = require('./paths.js');
 var gulp = require('gulp');
 var jade = require('gulp-jade');
 
-gulp.task('templates', ['clean', 'scripts', 'styles'], function(){
+gulp.task('templates', ['clean', 'styles'], function(){
   return gulp.src(paths.templates.src)
 
     .pipe(jade())
