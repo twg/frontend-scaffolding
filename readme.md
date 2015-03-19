@@ -65,6 +65,10 @@ There are two required elements to work with the grid. The first being `.grid` i
   .grid-1of2 lorem ipusm...
 ```
 
+##### Changing Grid Based-on Breakpoint
+
+As the scaffolding grid is responsive, you'll likeley need to alter the grid based on a particular breakpoint. To do this, simply append the name of the breakpoint to the grid item class like so: `.grid-1of4.grid-1of1--palm`.
+
 ##### Grid Modifiers
 
 The grid supports a number of optional modifiers that can be applied to `.grid` to adjust the formatting of the grid. These include:
@@ -78,3 +82,29 @@ Any of these modifiers can also be applied at a specific breakpoint, rather than
 #### Combo
 
 The Combo element is inspired by [Stubbornella's media object](http://www.stubbornella.org/content/2010/06/25/the-media-object-saves-hundreds-of-lines-of-code/). Combos are like a grid that always contains exactly two columns By default, the first column will consume as much width as it's content requires and the last column will consume all remaining width.
+
+##### General Usage
+
+There are three required elements to implement a combo. They are:
+
+- `.combo` - the wrapper that will house the combo elements
+- `.combo-first` - the left element of the combo
+- `.combo-last` - the right element of the combo
+
+The general strcture looks like:
+
+```
+.combo
+  .combo-first lorem ipsum...
+  .combo-last lorem ipsum...
+```
+
+##### Combo Modifiers
+
+Like the grid the combo supports a number of modifiers, these include:
+
+- `.combo.combo--middle` - vetically centers the combo items
+- `.combo.combo--bottom` - bottom align the combo items
+- `.combo.combo--rev` - reverse the the way `.combo-first` and `.combo-last` work
+
+Any of these modifiers can also be applied at a specific breakpoint, rather than across all breakpoints. To do this, simply append the breakpoint name to the modifier. For example: `.combo.combo--middle--desk` would only vertically center the combo items at the desk breakpoint.
