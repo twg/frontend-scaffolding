@@ -36,4 +36,15 @@ body
 
 #### Grid
 
+The grid system is inspired by the [CSS Wizardry Grid](https://github.com/csswizardry/csswizardry-grids). The following changes have been made:
+
+- adheres to the TWG BEM naming convention
+- variable gutter sizes based on breakpoints
+- no markup or wordspacing fix needed
+- includes an extra `large` breakpoint by default
+- more granularity - `.grid-3of11` is now possible
+- variable number of columns - 12 columns is the default
+
 #### Combo
+
+The Combo element is inspired by [Stubbornella's media object](http://www.stubbornella.org/content/2010/06/25/the-media-object-saves-hundreds-of-lines-of-code/). Combos are like a grid that always contains exactly two columns By default, the first column will consume as much width as it's content requires and the last column will consume all remaining width.
