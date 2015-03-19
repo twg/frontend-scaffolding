@@ -60,7 +60,7 @@ Scaffolding comes with some predefined default breakpoints, though you can easil
 
 The grid system is inspired by the [CSS Wizardry Grid](https://github.com/csswizardry/csswizardry-grids). The following changes have been made:
 
-- adheres to the TWG BEM naming convention
+- adheres to the TWG BEM naming convention (single and double dashes, no underscores, camelCase)
 - variable gutter sizes based on breakpoints
 - no markup or wordspacing fix needed
 - includes an extra `large` breakpoint by default
