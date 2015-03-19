@@ -34,7 +34,7 @@ body
     .siteFooter lorem ipsum...
 ```
 
-#### Breakpoints
+### Breakpoints
 
 Scaffolding comes with some predefined default breakpoints, though you can easily override them as you see fit. They include:
 
@@ -44,7 +44,7 @@ Scaffolding comes with some predefined default breakpoints, though you can easil
 - `large` - greater than 480px
 - `desk` - 1024px and greater
 
-#### Grid
+### Grid
 
 The grid system is inspired by the [CSS Wizardry Grid](https://github.com/csswizardry/csswizardry-grids). The following changes have been made:
 
@@ -79,7 +79,7 @@ The grid supports a number of optional modifiers that can be applied to `.grid` 
 
 Any of these modifiers can also be applied at a specific breakpoint, rather than across all breakpoints. To do this, simply append the breakpoint name to the modifier. For example: `.grid.grid--middle--desk` would only vertically center the grid items at the desk breakpoint.
 
-#### Combo
+### Combo
 
 The Combo element is inspired by [Stubbornella's media object](http://www.stubbornella.org/content/2010/06/25/the-media-object-saves-hundreds-of-lines-of-code/). Combos are like a grid that always contains exactly two columns By default, the first column will consume as much width as it's content requires and the last column will consume all remaining width.
 
