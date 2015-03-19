@@ -34,6 +34,18 @@ body
     .siteFooter lorem ipsum...
 ```
 
+### Naming Conventions
+
+The TWG front-end scaffolding follows a variation of the BEM naming convention. BEM stands for Block Element Modifier. Blocks, are resuable components that together make up the various views of a web application or site. Elements are the components within a block. Modifiers are classes that can be applied to blocks or elements to alter their default appearance. More info on BEM in general can be found here:  [http://csswizardry.com/2013/01/mindbemding-getting-your-head-round-bem-syntax/](http://csswizardry.com/2013/01/mindbemding-getting-your-head-round-bem-syntax/). Our version of BEM follows a slightly different syntax as it uses dash exclusievly instead of a combination of dashes and underscores.
+
+```
+.block
+.block-element
+.block--modifier
+```
+
+Since dashes indicate BEM structure they should **not** be used for multi-word names, instead camel case should be used.
+
 ### Breakpoints
 
 Scaffolding comes with some predefined default breakpoints, though you can easily override them as you see fit. They include:
