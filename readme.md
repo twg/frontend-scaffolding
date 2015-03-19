@@ -108,3 +108,54 @@ Like the grid the combo supports a number of modifiers, these include:
 - `.combo.combo--rev` - reverse the the way `.combo-first` and `.combo-last` work
 
 Any of these modifiers can also be applied at a specific breakpoint, rather than across all breakpoints. To do this, simply append the breakpoint name to the modifier. For example: `.combo.combo--middle--desk` would only vertically center the combo items at the desk breakpoint.
+
+### Mixins
+
+If you require `_scaffolding.styl` with your applications Stylus code, scaffolding will provide you with a number of additional mixins you can use throughout your project.
+
+The replicate mixin allows you to create breakpoint specific versions of any class (similar to the way the modifiers work above). You would implement it like so:
+
+```
++replicate('.foo')
+  background: red
+  color: white
+```
+
+which would generate the following:
+
+```
+.foo {
+  background: #f00;
+  color: #fff;
+}
+@media (min-width: 481px) {
+  .foo--large {
+    background: #f00;
+    color: #fff;
+  }
+}
+@media (min-width: 1024px) {
+  .foo--desk {
+    background: #f00;
+    color: #fff;
+  }
+}
+@media (min-width: 481px) and (max-width: 1023px) {
+  .foo--lap {
+    background: #f00;
+    color: #fff;
+  }
+}
+@media (max-width: 1023px) {
+  .foo--portable {
+    background: #f00;
+    color: #fff;
+  }
+}
+@media (max-width: 480px) {
+  .foo--palm {
+    background: #f00;
+    color: #fff;
+  }
+}
+```
