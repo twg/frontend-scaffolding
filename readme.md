@@ -34,6 +34,16 @@ body
     .siteFooter lorem ipsum...
 ```
 
+#### Breakpoints
+
+Scaffolding comes with some predefined default breakpoints, though you can easily override them as you see fit. They include:
+
+- `palm` - 480px and down
+- `lap` - greater than 480px and less than 1024px
+- `portable` - less than 1024px
+- `large` - greater than 480px
+- `desk` - 1024px and greater
+
 #### Grid
 
 The grid system is inspired by the [CSS Wizardry Grid](https://github.com/csswizardry/csswizardry-grids). The following changes have been made:
@@ -44,6 +54,26 @@ The grid system is inspired by the [CSS Wizardry Grid](https://github.com/csswiz
 - includes an extra `large` breakpoint by default
 - more granularity - `.grid-3of11` is now possible
 - variable number of columns - 12 columns is the default
+
+##### General Usage
+
+There are two required elements to work with the grid. The first being `.grid` itself which will house one or more grid items (cells). Grid items follow the syntax `.grid-xofy` where `x` is the number of columns this grid item should span out of a total of `y` columsn. The general structure will resemeble this:
+
+```
+.grid
+  .grid-1of2 lorem ipsum...
+  .grid-1of2 lorem ipusm...
+```
+
+##### Grid Modifiers
+
+The grid supports a number of optional modifiers that can be applied to `.grid` to adjust the formatting of the grid. These include:
+
+- `.grid.grid--middle` - vetically centers the grid items
+- `.grid.grid--bottom` - bottom align the grid items
+- `.grid.grid--rev` - reverse the order of the grid items
+
+Any of these modifiers can also be applied at a specific breakpoint, rather than across all breakpoints. To do this, simply append the breakpoint name to the modifier. For example: `.grid.grid--middle--desk` would only vertically center the grid items at the desk breakpoint.
 
 #### Combo
 
