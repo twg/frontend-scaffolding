@@ -10,7 +10,7 @@ gulp.task('server', ['build'], function() {
   nodemon({
     verbose: false,
     script: 'index.js',
-    watch: ['lib', 'index.js'],
+    watch: ['src', 'index.js'],
     ext: 'js',
     env: {
       NODE_ENV: 'development'
