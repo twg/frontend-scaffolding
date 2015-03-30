@@ -91,6 +91,9 @@ The grid supports a number of optional modifiers that can be applied to `.grid` 
 
 - `.grid.grid--middle` - vetically centers the grid items
 - `.grid.grid--bottom` - bottom align the grid items
+- `.grid.grid--narrow` - halves the gutter value
+- `.grid.grid--wide` - doubles the gutter value
+- `.grid.grid--full` - removes the gutter
 - `.grid.grid--rev` - reverse the order of the grid items
 
 Any of these modifiers can also be applied at a specific breakpoint, rather than across all breakpoints. To do this, simply append the breakpoint name to the modifier. For example: `.grid.grid--middle--desk` would only vertically center the grid items at the desk breakpoint.
@@ -121,6 +124,9 @@ Like the grid the combo supports a number of modifiers, these include:
 
 - `.combo.combo--middle` - vetically centers the combo items
 - `.combo.combo--bottom` - bottom align the combo items
+- `.combo.combo--narrow` - halves the gutter value
+- `.combo.combo--wide` - doubles the gutter value
+- `.combo.combo--full` - removes the gutter
 - `.combo.combo--rev` - reverse the the way `.combo-first` and `.combo-last` work
 
 Any of these modifiers can also be applied at a specific breakpoint, rather than across all breakpoints. To do this, simply append the breakpoint name to the modifier. For example: `.combo.combo--middle--desk` would only vertically center the combo items at the desk breakpoint.

@@ -34,6 +34,25 @@ for key, value in breakpoints
   > *
     vertical-align: bottom
 
+.grid--wide
+  for key, value in breakpoints
+    @media value.breakpoint
+      margin-left: (value.gutter * 2) * -1
+      > *
+        padding-left: value.gutter * 2
+
+.grid--narrow
+  for key, value in breakpoints
+    @media value.breakpoint
+      margin-left: (value.gutter / 2) * -1
+      > *
+        padding-left: (value.gutter / 2)
+
++replicate('.grid--full')
+  margin-left: 0
+  > *
+    padding-left: 0
+
 +replicate('.grid--rev')
   direction rtl
   text-align left

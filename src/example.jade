@@ -16,15 +16,19 @@ html(lang="en", ng-app="app")
     .siteWrapper
 
       .siteBody
-        .grid
-          .grid-1of2 
-            .block half
-          .grid-1of2 
-            .block half
-        .grid
-          .grid-2of3
-            .block two thirds
-          .grid-1of3
-            .block one third
+
+        each val in ['grid grid--wide', 'grid', 'grid grid--narrow', 'grid grid--full']
+          div(class="#{val}")
+            .grid-1of2
+              .block= val
+            .grid-1of2
+              .block= val
+
+        each val in ['combo combo--wide', 'combo', 'combo combo--narrow', 'combo combo--full']
+          div(class="#{val}")
+            .combo-first
+              .block= val
+            .combo-last
+              .block= val
 
       .siteFooter sticky footer

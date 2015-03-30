@@ -28,6 +28,28 @@ for key, value in breakpoints
   > *
     vertical-align: bottom
 
+.combo--wide
+  for key, value in breakpoints
+    @media value.breakpoint
+      .combo-first
+        padding-right: value.gutter
+      .combo-last
+        padding-left: value.gutter
+
+.combo--narrow
+  for key, value in breakpoints
+    @media value.breakpoint
+      .combo-first
+        padding-right: (value.gutter / 4)
+      .combo-last
+        padding-left: (value.gutter / 4)
+
++replicate('.combo--full')
+  .combo-first
+    padding-right: 0
+  .combo-last
+    padding-left: 0
+
 +replicate('.combo--rev')
   > .combo-first
     width: 100%

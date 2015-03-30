@@ -66,6 +66,28 @@ for key, value in breakpoints
   > *
     vertical-align: bottom
 
+.combo--wide
+  for key, value in breakpoints
+    @media value.breakpoint
+      .combo-first
+        padding-right: value.gutter
+      .combo-last
+        padding-left: value.gutter
+
+.combo--narrow
+  for key, value in breakpoints
+    @media value.breakpoint
+      .combo-first
+        padding-right: (value.gutter / 4)
+      .combo-last
+        padding-left: (value.gutter / 4)
+
++replicate('.combo--full')
+  .combo-first
+    padding-right: 0
+  .combo-last
+    padding-left: 0
+
 +replicate('.combo--rev')
   > .combo-first
     width: 100%
@@ -111,6 +133,25 @@ for key, value in breakpoints
 +replicate('.grid--bottom')
   > *
     vertical-align: bottom
+
+.grid--wide
+  for key, value in breakpoints
+    @media value.breakpoint
+      margin-left: (value.gutter * 2) * -1
+      > *
+        padding-left: value.gutter * 2
+
+.grid--narrow
+  for key, value in breakpoints
+    @media value.breakpoint
+      margin-left: (value.gutter / 2) * -1
+      > *
+        padding-left: (value.gutter / 2)
+
++replicate('.grid--full')
+  margin-left: 0
+  > *
+    padding-left: 0
 
 +replicate('.grid--rev')
   direction rtl
