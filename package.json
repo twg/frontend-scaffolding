@@ -1,6 +1,6 @@
 {
   "name": "twg-frontend-scaffolding",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Stylus based scaffolding components (grid, combo and sticky footer)",
   "main": "index.js",
   "scripts": {
