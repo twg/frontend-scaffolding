@@ -56,6 +56,10 @@ Scaffolding comes with some predefined default breakpoints, though you can easil
 - `large` - greater than 480px
 - `desk` - 1024px and greater
 
+### Container
+
+Scaffolding provides a generic `.container` element that can be used to provide your site with a maximum width. If the browser goes beyond the container's maximum width, container will horizontally center itself. By default, the container's max-width is set to 1024px.
+
 ### Grid
 
 The grid system is inspired by the [CSS Wizardry Grid](https://github.com/csswizardry/csswizardry-grids). The following changes have been made:
@@ -121,7 +125,31 @@ Like the grid the combo supports a number of modifiers, these include:
 
 Any of these modifiers can also be applied at a specific breakpoint, rather than across all breakpoints. To do this, simply append the breakpoint name to the modifier. For example: `.combo.combo--middle--desk` would only vertically center the combo items at the desk breakpoint.
 
-### Mixins
+### Stylus
+
+If you `@require '_scaffolding.styl' with your application's Stylus code you are able to override scaffolding's default variables and work with some of the mixins it provides.
+
+#### Variables
+
+The following scaffolding variables can be overridden by defining them prior to `@require`-ing the the scaffolding Stylus file:
+
+| Variable        | Default |
+|:----------------|:--------| 
+| base-font-size  | 16px    |
+| container-width | 1024px  |
+| grid-columns    | 12      |
+
+```
+breakpoints = {
+  large: {breakpoint: '(min-width: 481px)', gutter: 24px},
+  desk: {breakpoint: '(min-width: 1024px)', gutter: 24px},
+  lap: {breakpoint: '(min-width: 481px) and (max-width: 1023px)', gutter: 24px},
+  portable: {breakpoint: '(max-width: 1023px)', gutter: 24px},
+  palm: {breakpoint: '(max-width: 480px)', gutter: 24px}
+}
+```
+
+#### Mixins
 
 If you require `_scaffolding.styl` with your applications Stylus code, scaffolding will provide you with a number of additional mixins you can use throughout your project.
 
