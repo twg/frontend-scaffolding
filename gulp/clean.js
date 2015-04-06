@@ -1,5 +1,5 @@
 /* 
- * Destorys the destination folder before re-populating it.
+ * Destroys the destination folder before re-populating it.
  * Clean will not run while Gulp is watching.
  */
 
