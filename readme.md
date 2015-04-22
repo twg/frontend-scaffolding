@@ -228,6 +228,8 @@ which would generate the following:
 
 1. Install [mversion](https://github.com/mikaelbr/mversion) with `npm install -g mversion`.
 2. run `mversion patch`
+3. `git push origin master`
+4. `npm publish`
 
 ### Roadmap
 
