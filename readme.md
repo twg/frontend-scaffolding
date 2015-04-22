@@ -224,7 +224,11 @@ which would generate the following:
 }
 ```
 
+### How to Update
+
+1. Install [mversion](https://github.com/mikaelbr/mversion) with `npm install -g mversion`.
+2. run `mversion patch`
+
 ### Roadmap
 
-1. Add breakpoint specific show/hide utility classes
-2. Add flexbox support with inline-block fallback
+1. Add flexbox support with inline-block fallback
