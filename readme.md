@@ -42,6 +42,7 @@ The TWG front-end scaffolding follows a variation of the BEM naming convention. 
 .block
 .block-element
 .block--modifier
+.u-utility
 ```
 
 Since dashes indicate BEM structure they should **not** be used for multi-word names, instead camel case should be used.
@@ -130,6 +131,23 @@ Like the grid the combo supports a number of modifiers, these include:
 - `.combo.combo--rev` - reverse the the way `.combo-first` and `.combo-last` work
 
 Any of these modifiers can also be applied at a specific breakpoint, rather than across all breakpoints. To do this, simply append the breakpoint name to the modifier. For example: `.combo.combo--middle--desk` would only vertically center the combo items at the desk breakpoint.
+
+#### Show / Hide Utility Class
+
+Scaffolding provides generic show and hide classes to all you to display specific content or elements at specific breakpoints.
+
+- `.u-show` - Always show element
+- `.u-show-palm` - Show element only at the palm breakpoint
+- `.u-show-lap` - Show element only at the lap breakpoint
+- `.u-show-desk` - Show element only at the desk breakpoint
+- `.u-show-portable` - Show element only at the portable breakpoint
+- `.u-show-large` - Show element only at the large breakpoint
+- `.u-hide` - Always hide element
+- `.u-hide-palm` - Hide element only at the palm breakpoint
+- `.u-hide-lap` - Hide element only at the lap breakpoint
+- `.u-hide-desk` - Hide element only at the desk breakpoint
+- `.u-hide-portable` - Hide element only at the portable breakpoint
+- `.u-hide-large` - Hide element only at the large breakpoint
 
 ### Stylus
 

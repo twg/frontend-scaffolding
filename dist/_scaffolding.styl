@@ -160,6 +160,19 @@ for key, value in breakpoints
     direction ltr
     text-align left
 
++replicate('.u-hide')
+  display: none
+
+.u-show
+  display: none
+
+for key, value in breakpoints
+  .u-show--{key}
+    display: none 
+
++replicate('.u-show')
+  display: block
+
 .siteWrapper
   width: 100%
   height: 100%

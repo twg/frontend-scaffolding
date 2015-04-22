@@ -17,6 +17,15 @@ html(lang="en", ng-app="app")
 
       .siteBody
 
+        .block.u-hide hide
+        .block.u-hide--palm hide--palm
+        .block.u-hide--lap hide--lap
+        .block.u-hide--desk hide--desk
+        .block.u-show show
+        .block.u-show--palm show--palm
+        .block.u-show--lap show--lap
+        .block.u-show--desk show--desk
+
         each val in ['grid grid--wide', 'grid', 'grid grid--narrow', 'grid grid--full']
           div(class="#{val}")
             .grid-1of2
