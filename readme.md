@@ -223,3 +223,8 @@ which would generate the following:
   }
 }
 ```
+
+### Roadmap
+
+1. Add breakpoint specific show/hide utility classes
+2. Add flexbox support with inline-block fallback
