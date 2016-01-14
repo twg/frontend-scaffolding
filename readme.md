@@ -6,11 +6,11 @@ The TWG Front-end Scaffolding project provides the generic front-end foundation 
 
 ## How to integrate with your project
 
-#### Bower & Gulp
+#### Bower, NPM, & Gulp
 
 The preferred method of integratting this scaffolding into your project is via Bower and Gulp.
 
-1. `bower install twg-frontend-scaffolding`
+1. `npm install twg-frontend-scaffolding` or `bower install twg-frontend-scaffolding`
 2. integrate `_scaffolding.styl` into your Gulp workflow
 
 By integrating `_scaffolding.styl` into your Gulp workflow, you have the opportunity to override some of the default scaffolding settings as well as use the mixins that come with the scaffolding project in your own project.
