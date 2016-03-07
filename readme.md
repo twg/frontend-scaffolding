@@ -137,17 +137,17 @@ Any of these modifiers can also be applied at a specific breakpoint, rather than
 Scaffolding provides generic show and hide classes to all you to display specific content or elements at specific breakpoints.
 
 - `.u-show` - Always show element
-- `.u-show-palm` - Show element only at the palm breakpoint
-- `.u-show-lap` - Show element only at the lap breakpoint
-- `.u-show-desk` - Show element only at the desk breakpoint
-- `.u-show-portable` - Show element only at the portable breakpoint
-- `.u-show-large` - Show element only at the large breakpoint
+- `.u-show--palm` - Show element only at the palm breakpoint
+- `.u-show--lap` - Show element only at the lap breakpoint
+- `.u-show--desk` - Show element only at the desk breakpoint
+- `.u-show--portable` - Show element only at the portable breakpoint
+- `.u-show--large` - Show element only at the large breakpoint
 - `.u-hide` - Always hide element
-- `.u-hide-palm` - Hide element only at the palm breakpoint
-- `.u-hide-lap` - Hide element only at the lap breakpoint
-- `.u-hide-desk` - Hide element only at the desk breakpoint
-- `.u-hide-portable` - Hide element only at the portable breakpoint
-- `.u-hide-large` - Hide element only at the large breakpoint
+- `.u-hide--palm` - Hide element only at the palm breakpoint
+- `.u-hide--lap` - Hide element only at the lap breakpoint
+- `.u-hide--desk` - Hide element only at the desk breakpoint
+- `.u-hide--portable` - Hide element only at the portable breakpoint
+- `.u-hide--large` - Hide element only at the large breakpoint
 
 ### Stylus
 
