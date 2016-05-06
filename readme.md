@@ -8,7 +8,7 @@ The TWG Front-end Scaffolding project provides the generic front-end foundation 
 
 #### Bower, NPM, & Gulp
 
-The preferred method of integratting this scaffolding into your project is via Bower and Gulp.
+The preferred method of integrating this scaffolding into your project is via Bower and Gulp.
 
 1. `npm install twg-frontend-scaffolding` or `bower install twg-frontend-scaffolding`
 2. integrate `_scaffolding.styl` into your Gulp workflow
@@ -36,7 +36,7 @@ body
 
 ### Naming Conventions
 
-The TWG front-end scaffolding follows a variation of the BEM naming convention. BEM stands for Block Element Modifier. Blocks, are resuable components that together make up the various views of a web application or site. Elements are the components within a block. Modifiers are classes that can be applied to blocks or elements to alter their default appearance. More info on BEM in general can be found here:  [http://csswizardry.com/2013/01/mindbemding-getting-your-head-round-bem-syntax/](http://csswizardry.com/2013/01/mindbemding-getting-your-head-round-bem-syntax/). Our version of BEM follows a slightly different syntax as it uses dash exclusievly instead of a combination of dashes and underscores.
+The TWG front-end scaffolding follows a variation of the BEM naming convention. BEM stands for Block Element Modifier. Blocks, are reusable components that together make up the various views of a web application or site. Elements are the components within a block. Modifiers are classes that can be applied to blocks or elements to alter their default appearance. More info on BEM in general can be found here:  [http://csswizardry.com/2013/01/mindbemding-getting-your-head-round-bem-syntax/](http://csswizardry.com/2013/01/mindbemding-getting-your-head-round-bem-syntax/). Our version of BEM follows a slightly different syntax as it uses dash exclusively instead of a combination of dashes and underscores.
 
 ```
 .block
@@ -67,14 +67,14 @@ The grid system is inspired by the [CSS Wizardry Grid](https://github.com/csswiz
 
 - adheres to the TWG BEM naming convention (single and double dashes, no underscores, camelCase)
 - variable gutter sizes based on breakpoints
-- no markup or wordspacing fix needed
+- no markup or word-spacing fix needed
 - includes an extra `large` breakpoint by default
 - more granularity - `.grid-3of11` is now possible
 - variable number of columns - 12 columns is the default
 
 ##### General Usage
 
-There are two required elements to work with the grid. The first being `.grid` itself which will house one or more grid items (cells). Grid items follow the syntax `.grid-xofy` where `x` is the number of columns this grid item should span out of a total of `y` columsn. The general structure will resemeble this:
+There are two required elements to work with the grid. The first being `.grid` itself which will house one or more grid items (cells). Grid items follow the syntax `.grid-xofy` where `x` is the number of columns this grid item should span out of a total of `y` columns. The general structure will resemble this:
 
 ```
 .grid
@@ -84,13 +84,14 @@ There are two required elements to work with the grid. The first being `.grid` i
 
 ##### Changing Grid Based-on Breakpoint
 
-As the scaffolding grid is responsive, you'll likeley need to alter the grid based on a particular breakpoint. To do this, simply append the name of the breakpoint to the grid item class like so: `.grid-1of4.grid-1of1--palm`.
+As the scaffolding grid is responsive, you'll likely need to alter the grid based on a particular breakpoint. To do this, simply append the name of the breakpoint to the grid item class like so: `.grid-1of4.grid-1of1--palm`.
 
 ##### Grid Modifiers
 
 The grid supports a number of optional modifiers that can be applied to `.grid` to adjust the formatting of the grid. These include:
 
-- `.grid.grid--middle` - vetically centers the grid items
+- `.grid.grid--middle` - vertically centers the grid items
+- `.grid.grid--center` - horizontally centers the grid items
 - `.grid.grid--bottom` - bottom align the grid items
 - `.grid.grid--narrow` - halves the gutter value
 - `.grid.grid--wide` - doubles the gutter value
@@ -111,7 +112,7 @@ There are three required elements to implement a combo. They are:
 - `.combo-first` - the left element of the combo
 - `.combo-last` - the right element of the combo
 
-The general strcture looks like:
+The general structure looks like:
 
 ```
 .combo
@@ -123,7 +124,7 @@ The general strcture looks like:
 
 Like the grid the combo supports a number of modifiers, these include:
 
-- `.combo.combo--middle` - vetically centers the combo items
+- `.combo.combo--middle` - vertically centers the combo items
 - `.combo.combo--bottom` - bottom align the combo items
 - `.combo.combo--narrow` - halves the gutter value
 - `.combo.combo--wide` - doubles the gutter value
